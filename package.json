@@ -8,8 +8,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.2",
-    "@graphql-codegen/client-preset": "^4.3.0",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@remkoj/optimizely-graph-client": "^5.0.2",
     "@remkoj/optimizely-graph-functions": "^5.0.2",
@@ -26,7 +24,6 @@
   },
   "exports": null,
   "scripts": {
-    "codegen": "graphql-codegen",
     "dev": "yarn workspace frontend dev",
     "dev:https": "yarn workspace frontend dev:https",
     "build": "yarn workspace frontend build",

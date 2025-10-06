@@ -2,7 +2,7 @@
 import { useState, type FunctionComponent, type KeyboardEvent } from "react"
 import { useUrlState } from "@/lib/use-url-state"
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-//import useLastTerms from "@/lib/use-last-terms"
+import useLastTerms from "@/lib/use-last-terms"
 
 export type SearchHeaderProps = {
     initialQuery?: string | null

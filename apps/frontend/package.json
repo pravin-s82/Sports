@@ -16,10 +16,7 @@
     "update": "yarn opti-cms nextjs:create && graphql-codegen",
     "watch": "graphql-codegen -w",
     "flags:pull": "opti-fx pull",
-    "type-check": "tsc --pretty --noEmit",
-    "codegen": "graphql-codegen --config codegen.config.ts",
-    "export:page-types": "ts-node scripts/exportPageTypes.ts",
-    "generate": "yarn export:page-types && yarn codegen"
+    "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",

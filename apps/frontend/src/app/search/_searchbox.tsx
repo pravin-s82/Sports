@@ -2,7 +2,7 @@
 import { useEffect, useState, type FunctionComponent, type KeyboardEvent } from "react"
 import { useUrlState } from "@/lib/use-url-state"
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-//import useLastTerms from "@/lib/use-last-terms"
+import useLastTerms from "@/lib/use-last-terms"
 
 export type SearchBoxProps = {
     initialQuery?: string | null
@@ -13,7 +13,7 @@ export const SearchBox: FunctionComponent<SearchBoxProps> = ({
 }) => {
     const [ query, setQuery ] = useUrlState<string>('query', initialQuery ?? '', undefined, x=>x, x=>x)
     const [ term, setTerm ] = useState<string>(query)
-    //const { data: lastTerms } = useLastTerms()
+    const { data: lastTerms } = useLastTerms()
 
     function onKeyUp(event: KeyboardEvent) {
         if (event.key == "Enter")

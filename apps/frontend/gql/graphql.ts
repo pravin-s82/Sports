@@ -1574,7 +1574,8 @@ export type Decay = {
 
 export type DetailPage = IData & _IContent & _IPage & {
   __typename?: 'DetailPage';
-  DetailPageMainContent?: Maybe<Array<Maybe<_IContent>>>;
+  Description?: Maybe<SearchableRichText>;
+  PrimaryContentArea?: Maybe<SearchableRichText>;
   Teaser?: Maybe<Scalars['String']['output']>;
   Title?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
@@ -1590,6 +1591,16 @@ export type DetailPage = IData & _IContent & _IPage & {
 };
 
 
+export type DetailPageTeaserArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type DetailPageTitleArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
 export type DetailPage_fulltextArgs = {
   highlight?: InputMaybe<HighlightOptions>;
 };
@@ -1601,18 +1612,39 @@ export type DetailPage_linkArgs = {
 
 export type DetailPageAutocomplete = {
   __typename?: 'DetailPageAutocomplete';
-  DetailPageMainContent?: Maybe<_IContentAutocomplete>;
   _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
 export type DetailPageFacet = {
   __typename?: 'DetailPageFacet';
-  DetailPageMainContent?: Maybe<_IContentFacet>;
+  Description?: Maybe<SearchableRichTextFacet>;
+  PrimaryContentArea?: Maybe<SearchableRichTextFacet>;
+  Teaser?: Maybe<Array<Maybe<StringFacet>>>;
+  Title?: Maybe<Array<Maybe<StringFacet>>>;
   _metadata?: Maybe<IContentMetadataFacet>;
 };
 
+
+export type DetailPageFacetTeaserArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type DetailPageFacetTitleArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
 export type DetailPageOrderByInput = {
-  DetailPageMainContent?: InputMaybe<_IContentOrderByInput>;
+  Description?: InputMaybe<SearchableRichTextOrderByInput>;
+  PrimaryContentArea?: InputMaybe<SearchableRichTextOrderByInput>;
+  Teaser?: InputMaybe<OrderBy>;
+  Title?: InputMaybe<OrderBy>;
   _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
@@ -1637,7 +1669,10 @@ export type DetailPageOutputtotalArgs = {
 };
 
 export type DetailPageWhereInput = {
-  DetailPageMainContent?: InputMaybe<_IContentWhereInput>;
+  Description?: InputMaybe<SearchableRichTextWhereInput>;
+  PrimaryContentArea?: InputMaybe<SearchableRichTextWhereInput>;
+  Teaser?: InputMaybe<SearchableStringFilterInput>;
+  Title?: InputMaybe<SearchableStringFilterInput>;
   _and?: InputMaybe<Array<InputMaybe<DetailPageWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;
   _metadata?: InputMaybe<IContentMetadataWhereInput>;
@@ -3664,6 +3699,736 @@ export type OdpEmbedBlockWhereInput = {
   _or?: InputMaybe<Array<InputMaybe<OdpEmbedBlockWhereInput>>>;
 };
 
+export type OptiFormsChoiceElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsChoiceElement';
+  AllowMultiSelect?: Maybe<Scalars['Boolean']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Options?: Maybe<Scalars['JSON']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsChoiceElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsChoiceElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsChoiceElementAutocomplete = {
+  __typename?: 'OptiFormsChoiceElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsChoiceElementFacet = {
+  __typename?: 'OptiFormsChoiceElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsChoiceElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsChoiceElementOutput = {
+  __typename?: 'OptiFormsChoiceElementOutput';
+  autocomplete?: Maybe<OptiFormsChoiceElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsChoiceElementFacet>;
+  item?: Maybe<OptiFormsChoiceElement>;
+  items?: Maybe<Array<Maybe<OptiFormsChoiceElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsChoiceElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsChoiceElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsChoiceElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsChoiceElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsChoiceElementWhereInput>>>;
+};
+
+export type OptiFormsContainerData = IData & _IComponent & _IContent & _ISection & {
+  __typename?: 'OptiFormsContainerData';
+  Description?: Maybe<Scalars['String']['output']>;
+  ResetConfirmationMessage?: Maybe<Scalars['String']['output']>;
+  ShowSummaryMessageAfterSubmission?: Maybe<Scalars['Boolean']['output']>;
+  SubmitConfirmationMessage?: Maybe<Scalars['String']['output']>;
+  SubmitUrl?: Maybe<ContentUrl>;
+  Title?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+  composition?: Maybe<CompositionStructureNode>;
+};
+
+
+export type OptiFormsContainerData_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsContainerData_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsContainerDataAutocomplete = {
+  __typename?: 'OptiFormsContainerDataAutocomplete';
+  SubmitUrl?: Maybe<ContentUrlAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  composition?: Maybe<CompositionStructureNodeAutocomplete>;
+};
+
+export type OptiFormsContainerDataFacet = {
+  __typename?: 'OptiFormsContainerDataFacet';
+  SubmitUrl?: Maybe<ContentUrlFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  composition?: Maybe<CompositionStructureNodeFacet>;
+};
+
+export type OptiFormsContainerDataOrderByInput = {
+  SubmitUrl?: InputMaybe<ContentUrlOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+  composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
+};
+
+export type OptiFormsContainerDataOutput = {
+  __typename?: 'OptiFormsContainerDataOutput';
+  autocomplete?: Maybe<OptiFormsContainerDataAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsContainerDataFacet>;
+  item?: Maybe<OptiFormsContainerData>;
+  items?: Maybe<Array<Maybe<OptiFormsContainerData>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsContainerDataOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsContainerDataWhereInput = {
+  SubmitUrl?: InputMaybe<ContentUrlWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsContainerDataWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsContainerDataWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsContainerDataWhereInput>>>;
+  composition?: InputMaybe<CompositionStructureNodeWhereInput>;
+};
+
+export type OptiFormsNumberElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsNumberElement';
+  AutoComplete?: Maybe<Scalars['String']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Placeholder?: Maybe<Scalars['String']['output']>;
+  PredefinedValue?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsNumberElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsNumberElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsNumberElementAutocomplete = {
+  __typename?: 'OptiFormsNumberElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsNumberElementFacet = {
+  __typename?: 'OptiFormsNumberElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsNumberElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsNumberElementOutput = {
+  __typename?: 'OptiFormsNumberElementOutput';
+  autocomplete?: Maybe<OptiFormsNumberElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsNumberElementFacet>;
+  item?: Maybe<OptiFormsNumberElement>;
+  items?: Maybe<Array<Maybe<OptiFormsNumberElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsNumberElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsNumberElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsNumberElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsNumberElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsNumberElementWhereInput>>>;
+};
+
+export type OptiFormsRangeElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsRangeElement';
+  Increment?: Maybe<Scalars['Int']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Max?: Maybe<Scalars['Int']['output']>;
+  Min?: Maybe<Scalars['Int']['output']>;
+  PredefinedValue?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsRangeElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsRangeElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsRangeElementAutocomplete = {
+  __typename?: 'OptiFormsRangeElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsRangeElementFacet = {
+  __typename?: 'OptiFormsRangeElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsRangeElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsRangeElementOutput = {
+  __typename?: 'OptiFormsRangeElementOutput';
+  autocomplete?: Maybe<OptiFormsRangeElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsRangeElementFacet>;
+  item?: Maybe<OptiFormsRangeElement>;
+  items?: Maybe<Array<Maybe<OptiFormsRangeElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsRangeElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsRangeElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsRangeElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsRangeElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsRangeElementWhereInput>>>;
+};
+
+export type OptiFormsResetElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsResetElement';
+  Label?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsResetElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsResetElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsResetElementAutocomplete = {
+  __typename?: 'OptiFormsResetElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsResetElementFacet = {
+  __typename?: 'OptiFormsResetElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsResetElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsResetElementOutput = {
+  __typename?: 'OptiFormsResetElementOutput';
+  autocomplete?: Maybe<OptiFormsResetElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsResetElementFacet>;
+  item?: Maybe<OptiFormsResetElement>;
+  items?: Maybe<Array<Maybe<OptiFormsResetElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsResetElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsResetElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsResetElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsResetElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsResetElementWhereInput>>>;
+};
+
+export type OptiFormsSelectionElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsSelectionElement';
+  AllowMultiSelect?: Maybe<Scalars['Boolean']['output']>;
+  AutoComplete?: Maybe<Scalars['String']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Options?: Maybe<Scalars['JSON']['output']>;
+  Placeholder?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsSelectionElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsSelectionElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsSelectionElementAutocomplete = {
+  __typename?: 'OptiFormsSelectionElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsSelectionElementFacet = {
+  __typename?: 'OptiFormsSelectionElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsSelectionElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsSelectionElementOutput = {
+  __typename?: 'OptiFormsSelectionElementOutput';
+  autocomplete?: Maybe<OptiFormsSelectionElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsSelectionElementFacet>;
+  item?: Maybe<OptiFormsSelectionElement>;
+  items?: Maybe<Array<Maybe<OptiFormsSelectionElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsSelectionElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsSelectionElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsSelectionElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsSelectionElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsSelectionElementWhereInput>>>;
+};
+
+export type OptiFormsSubmitElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsSubmitElement';
+  Label?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsSubmitElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsSubmitElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsSubmitElementAutocomplete = {
+  __typename?: 'OptiFormsSubmitElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsSubmitElementFacet = {
+  __typename?: 'OptiFormsSubmitElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsSubmitElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsSubmitElementOutput = {
+  __typename?: 'OptiFormsSubmitElementOutput';
+  autocomplete?: Maybe<OptiFormsSubmitElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsSubmitElementFacet>;
+  item?: Maybe<OptiFormsSubmitElement>;
+  items?: Maybe<Array<Maybe<OptiFormsSubmitElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsSubmitElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsSubmitElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsSubmitElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsSubmitElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsSubmitElementWhereInput>>>;
+};
+
+export type OptiFormsTextareaElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsTextareaElement';
+  AutoComplete?: Maybe<Scalars['String']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Placeholder?: Maybe<Scalars['String']['output']>;
+  PredefinedValue?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsTextareaElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsTextareaElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsTextareaElementAutocomplete = {
+  __typename?: 'OptiFormsTextareaElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsTextareaElementFacet = {
+  __typename?: 'OptiFormsTextareaElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsTextareaElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsTextareaElementOutput = {
+  __typename?: 'OptiFormsTextareaElementOutput';
+  autocomplete?: Maybe<OptiFormsTextareaElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsTextareaElementFacet>;
+  item?: Maybe<OptiFormsTextareaElement>;
+  items?: Maybe<Array<Maybe<OptiFormsTextareaElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsTextareaElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsTextareaElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsTextareaElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsTextareaElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsTextareaElementWhereInput>>>;
+};
+
+export type OptiFormsTextboxElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsTextboxElement';
+  AutoComplete?: Maybe<Scalars['String']['output']>;
+  Label?: Maybe<Scalars['String']['output']>;
+  Placeholder?: Maybe<Scalars['String']['output']>;
+  PredefinedValue?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsTextboxElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsTextboxElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsTextboxElementAutocomplete = {
+  __typename?: 'OptiFormsTextboxElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsTextboxElementFacet = {
+  __typename?: 'OptiFormsTextboxElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsTextboxElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsTextboxElementOutput = {
+  __typename?: 'OptiFormsTextboxElementOutput';
+  autocomplete?: Maybe<OptiFormsTextboxElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsTextboxElementFacet>;
+  item?: Maybe<OptiFormsTextboxElement>;
+  items?: Maybe<Array<Maybe<OptiFormsTextboxElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsTextboxElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsTextboxElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsTextboxElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsTextboxElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsTextboxElementWhereInput>>>;
+};
+
+export type OptiFormsUrlElement = IData & _IComponent & _IContent & {
+  __typename?: 'OptiFormsUrlElement';
+  Label?: Maybe<Scalars['String']['output']>;
+  Placeholder?: Maybe<Scalars['String']['output']>;
+  PredefinedValue?: Maybe<Scalars['String']['output']>;
+  Tooltip?: Maybe<Scalars['String']['output']>;
+  Validators?: Maybe<Scalars['JSON']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type OptiFormsUrlElement_fulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type OptiFormsUrlElement_linkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type OptiFormsUrlElementAutocomplete = {
+  __typename?: 'OptiFormsUrlElementAutocomplete';
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type OptiFormsUrlElementFacet = {
+  __typename?: 'OptiFormsUrlElementFacet';
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type OptiFormsUrlElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type OptiFormsUrlElementOutput = {
+  __typename?: 'OptiFormsUrlElementOutput';
+  autocomplete?: Maybe<OptiFormsUrlElementAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<OptiFormsUrlElementFacet>;
+  item?: Maybe<OptiFormsUrlElement>;
+  items?: Maybe<Array<Maybe<OptiFormsUrlElement>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type OptiFormsUrlElementOutputtotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type OptiFormsUrlElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OptiFormsUrlElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OptiFormsUrlElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OptiFormsUrlElementWhereInput>>>;
+};
+
 export enum OrderBy {
   ASC = 'ASC',
   DESC = 'DESC'
@@ -4008,6 +4773,16 @@ export type Query = {
   MenuNavigationBlock?: Maybe<MenuNavigationBlockOutput>;
   MoblieNav?: Maybe<MoblieNavOutput>;
   OdpEmbedBlock?: Maybe<OdpEmbedBlockOutput>;
+  OptiFormsChoiceElement?: Maybe<OptiFormsChoiceElementOutput>;
+  OptiFormsContainerData?: Maybe<OptiFormsContainerDataOutput>;
+  OptiFormsNumberElement?: Maybe<OptiFormsNumberElementOutput>;
+  OptiFormsRangeElement?: Maybe<OptiFormsRangeElementOutput>;
+  OptiFormsResetElement?: Maybe<OptiFormsResetElementOutput>;
+  OptiFormsSelectionElement?: Maybe<OptiFormsSelectionElementOutput>;
+  OptiFormsSubmitElement?: Maybe<OptiFormsSubmitElementOutput>;
+  OptiFormsTextareaElement?: Maybe<OptiFormsTextareaElementOutput>;
+  OptiFormsTextboxElement?: Maybe<OptiFormsTextboxElementOutput>;
+  OptiFormsUrlElement?: Maybe<OptiFormsUrlElementOutput>;
   PageSeoSettings?: Maybe<PageSeoSettingsOutput>;
   ParagraphElement?: Maybe<ParagraphElementOutput>;
   QuoteBlock?: Maybe<QuoteBlockOutput>;
@@ -4459,6 +5234,146 @@ export type QueryOdpEmbedBlockArgs = {
   usePinned?: InputMaybe<usePinnedInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<OdpEmbedBlockWhereInput>;
+};
+
+
+export type QueryOptiFormsChoiceElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsChoiceElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsChoiceElementWhereInput>;
+};
+
+
+export type QueryOptiFormsContainerDataArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsContainerDataOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsContainerDataWhereInput>;
+};
+
+
+export type QueryOptiFormsNumberElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsNumberElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsNumberElementWhereInput>;
+};
+
+
+export type QueryOptiFormsRangeElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsRangeElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsRangeElementWhereInput>;
+};
+
+
+export type QueryOptiFormsResetElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsResetElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsResetElementWhereInput>;
+};
+
+
+export type QueryOptiFormsSelectionElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsSelectionElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsSelectionElementWhereInput>;
+};
+
+
+export type QueryOptiFormsSubmitElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsSubmitElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsSubmitElementWhereInput>;
+};
+
+
+export type QueryOptiFormsTextareaElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsTextareaElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsTextareaElementWhereInput>;
+};
+
+
+export type QueryOptiFormsTextboxElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsTextboxElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsTextboxElementWhereInput>;
+};
+
+
+export type QueryOptiFormsUrlElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsUrlElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsUrlElementWhereInput>;
 };
 
 
@@ -4927,6 +5842,16 @@ export type QueryRef = {
   MenuNavigationBlock?: Maybe<MenuNavigationBlockOutput>;
   MoblieNav?: Maybe<MoblieNavOutput>;
   OdpEmbedBlock?: Maybe<OdpEmbedBlockOutput>;
+  OptiFormsChoiceElement?: Maybe<OptiFormsChoiceElementOutput>;
+  OptiFormsContainerData?: Maybe<OptiFormsContainerDataOutput>;
+  OptiFormsNumberElement?: Maybe<OptiFormsNumberElementOutput>;
+  OptiFormsRangeElement?: Maybe<OptiFormsRangeElementOutput>;
+  OptiFormsResetElement?: Maybe<OptiFormsResetElementOutput>;
+  OptiFormsSelectionElement?: Maybe<OptiFormsSelectionElementOutput>;
+  OptiFormsSubmitElement?: Maybe<OptiFormsSubmitElementOutput>;
+  OptiFormsTextareaElement?: Maybe<OptiFormsTextareaElementOutput>;
+  OptiFormsTextboxElement?: Maybe<OptiFormsTextboxElementOutput>;
+  OptiFormsUrlElement?: Maybe<OptiFormsUrlElementOutput>;
   PageSeoSettings?: Maybe<PageSeoSettingsOutput>;
   ParagraphElement?: Maybe<ParagraphElementOutput>;
   QuoteBlock?: Maybe<QuoteBlockOutput>;
@@ -5378,6 +6303,146 @@ export type QueryRefOdpEmbedBlockArgs = {
   usePinned?: InputMaybe<usePinnedInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<OdpEmbedBlockWhereInput>;
+};
+
+
+export type QueryRefOptiFormsChoiceElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsChoiceElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsChoiceElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsContainerDataArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsContainerDataOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsContainerDataWhereInput>;
+};
+
+
+export type QueryRefOptiFormsNumberElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsNumberElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsNumberElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsRangeElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsRangeElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsRangeElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsResetElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsResetElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsResetElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsSelectionElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsSelectionElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsSelectionElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsSubmitElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsSubmitElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsSubmitElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsTextareaElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsTextareaElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsTextareaElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsTextboxElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsTextboxElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsTextboxElementWhereInput>;
+};
+
+
+export type QueryRefOptiFormsUrlElementArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OptiFormsUrlElementOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  track?: InputMaybe<Scalars['String']['input']>;
+  usePinned?: InputMaybe<usePinnedInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<OptiFormsUrlElementWhereInput>;
 };
 
 
@@ -8768,6 +9833,36 @@ export type CarouselBlockDataFragment = { __typename?: 'CarouselBlock', Carousel
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment;'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment;'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment;'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment;'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment;'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment;'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment;'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment;'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment;'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment;'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment;'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment;'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -8951,6 +10046,36 @@ export type ContinueReadingComponentDataFragment = { __typename?: 'ContinueReadi
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment;'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment;'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment;'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment;'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment;'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment;'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment;'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment;'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment;'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment;'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment;'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment;'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -9144,6 +10269,36 @@ export type GlobalHeaderDataFragment = { __typename?: 'GlobalHeader', MainMenu?:
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
   ) | (
@@ -9323,6 +10478,36 @@ export type GlobalHeaderDataFragment = { __typename?: 'GlobalHeader', MainMenu?:
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
@@ -9528,6 +10713,36 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
   ) | (
@@ -9708,6 +10923,36 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
   ) | (
@@ -9887,6 +11132,36 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
@@ -10075,6 +11350,36 @@ export type MegaMenuGroupBlockDataFragment = { __typename?: 'MegaMenuGroupBlock'
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -10287,6 +11592,36 @@ export type SoColumnDataFragment = { __typename?: 'SoColumn', ColumnClasses?: st
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -10429,6 +11764,36 @@ export type SoColumnPropertyDataFragment = { __typename?: 'SoColumnProperty', Co
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment;'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment;'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment;'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment;'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment;'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment;'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment;'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment;'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment;'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment;'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment;'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment;'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -10610,6 +11975,36 @@ export type SoSectionTwoDataFragment = { __typename?: 'SoSectionTwo', Modifiers?
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -10778,6 +12173,36 @@ export type VenuesDataFragment = { __typename?: 'Venues', VenueTitle?: string | 
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment } }
@@ -11042,6 +12467,36 @@ export type BlogPostPageDataFragment = { __typename?: 'BlogPostPage', blogTitle?
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_OdpEmbedBlock_Fragment': IContentListItem_OdpEmbedBlock_Fragment;'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsChoiceElement_Fragment': IContentListItem_OptiFormsChoiceElement_Fragment;'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsContainerData_Fragment': IContentListItem_OptiFormsContainerData_Fragment;'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsNumberElement_Fragment': IContentListItem_OptiFormsNumberElement_Fragment;'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsRangeElement_Fragment': IContentListItem_OptiFormsRangeElement_Fragment;'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsResetElement_Fragment': IContentListItem_OptiFormsResetElement_Fragment;'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSelectionElement_Fragment': IContentListItem_OptiFormsSelectionElement_Fragment;'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsSubmitElement_Fragment': IContentListItem_OptiFormsSubmitElement_Fragment;'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextareaElement_Fragment': IContentListItem_OptiFormsTextareaElement_Fragment;'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsTextboxElement_Fragment': IContentListItem_OptiFormsTextboxElement_Fragment;'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'IContentListItem_OptiFormsUrlElement_Fragment': IContentListItem_OptiFormsUrlElement_Fragment;'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'IContentListItem_PageSeoSettings_Fragment': IContentListItem_PageSeoSettings_Fragment;'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -11215,6 +12670,36 @@ export type EventListPageDataFragment = { __typename?: 'EventListPage', EventTit
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -11343,6 +12828,36 @@ export type LandingPageDataFragment = { __typename?: 'LandingPage', TopContentAr
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -11456,6 +12971,36 @@ export type LandingPageDataFragment = { __typename?: 'LandingPage', TopContentAr
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -11573,6 +13118,36 @@ export type SOHomePageDataFragment = { __typename?: 'SOHomePage', Title?: string
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -11686,6 +13261,36 @@ export type SOHomePageDataFragment = { __typename?: 'SOHomePage', Title?: string
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -11801,6 +13406,36 @@ export type SOHomePageDataFragment = { __typename?: 'SOHomePage', Title?: string
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -11915,6 +13550,36 @@ export type SOHomePageDataFragment = { __typename?: 'SOHomePage', Title?: string
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -12028,6 +13693,36 @@ export type SOHomePageDataFragment = { __typename?: 'SOHomePage', Title?: string
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -12144,6 +13839,36 @@ export type SOLandingPageDataFragment = { __typename?: 'SOLandingPage', LandingP
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -12273,6 +13998,36 @@ export type VenueListDataFragment = { __typename?: 'VenueList', VenueTitle?: str
   ) | (
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+  ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment } }
   ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -12424,6 +14179,36 @@ export type getFooterDataQuery = { __typename?: 'Query', appLayout?: { __typenam
       ) | (
         { __typename?: 'OdpEmbedBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsChoiceElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsContainerData' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsNumberElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsRangeElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsResetElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSelectionElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSubmitElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextareaElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextboxElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsUrlElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
       ) | (
         { __typename?: 'PageSeoSettings' }
         & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -12616,6 +14401,36 @@ export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typenam
         { __typename?: 'OdpEmbedBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
       ) | (
+        { __typename?: 'OptiFormsChoiceElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsContainerData' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsNumberElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsRangeElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsResetElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSelectionElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSubmitElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextareaElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextboxElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsUrlElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+      ) | (
         { __typename?: 'PageSeoSettings' }
         & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
       ) | (
@@ -12795,6 +14610,36 @@ export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typenam
       ) | (
         { __typename?: 'OdpEmbedBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsChoiceElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsContainerData' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsNumberElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsRangeElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsResetElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSelectionElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSubmitElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextareaElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextboxElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsUrlElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
       ) | (
         { __typename?: 'PageSeoSettings' }
         & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -12991,6 +14836,36 @@ export type getSoHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typen
         { __typename?: 'OdpEmbedBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
       ) | (
+        { __typename?: 'OptiFormsChoiceElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsContainerData' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsNumberElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsRangeElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsResetElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSelectionElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSubmitElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextareaElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextboxElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsUrlElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+      ) | (
         { __typename?: 'PageSeoSettings' }
         & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
       ) | (
@@ -13170,6 +15045,36 @@ export type getSoHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typen
       ) | (
         { __typename?: 'OdpEmbedBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsChoiceElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsContainerData' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsNumberElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsRangeElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsResetElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSelectionElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsSubmitElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextareaElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsTextboxElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+      ) | (
+        { __typename?: 'OptiFormsUrlElement' }
+        & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
       ) | (
         { __typename?: 'PageSeoSettings' }
         & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -13484,6 +15389,56 @@ type SearchData_OdpEmbedBlock_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
 ) & { ' $fragmentName'?: 'SearchData_OdpEmbedBlock_Fragment' };
 
+type SearchData_OptiFormsChoiceElement_Fragment = (
+  { __typename?: 'OptiFormsChoiceElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsChoiceElement_Fragment' };
+
+type SearchData_OptiFormsContainerData_Fragment = (
+  { __typename?: 'OptiFormsContainerData' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsContainerData_Fragment' };
+
+type SearchData_OptiFormsNumberElement_Fragment = (
+  { __typename?: 'OptiFormsNumberElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsNumberElement_Fragment' };
+
+type SearchData_OptiFormsRangeElement_Fragment = (
+  { __typename?: 'OptiFormsRangeElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsRangeElement_Fragment' };
+
+type SearchData_OptiFormsResetElement_Fragment = (
+  { __typename?: 'OptiFormsResetElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsResetElement_Fragment' };
+
+type SearchData_OptiFormsSelectionElement_Fragment = (
+  { __typename?: 'OptiFormsSelectionElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsSelectionElement_Fragment' };
+
+type SearchData_OptiFormsSubmitElement_Fragment = (
+  { __typename?: 'OptiFormsSubmitElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsSubmitElement_Fragment' };
+
+type SearchData_OptiFormsTextareaElement_Fragment = (
+  { __typename?: 'OptiFormsTextareaElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsTextareaElement_Fragment' };
+
+type SearchData_OptiFormsTextboxElement_Fragment = (
+  { __typename?: 'OptiFormsTextboxElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsTextboxElement_Fragment' };
+
+type SearchData_OptiFormsUrlElement_Fragment = (
+  { __typename?: 'OptiFormsUrlElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+) & { ' $fragmentName'?: 'SearchData_OptiFormsUrlElement_Fragment' };
+
 type SearchData_PageSeoSettings_Fragment = (
   { __typename?: 'PageSeoSettings' }
   & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -13639,7 +15594,7 @@ type SearchData__Video_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData__Video_Fragment': IContentData__Video_Fragment } }
 ) & { ' $fragmentName'?: 'SearchData__Video_Fragment' };
 
-export type SearchDataFragment = SearchData_ArticleListElement_Fragment | SearchData_BlankExperience_Fragment | SearchData_BlankSection_Fragment | SearchData_BlogPostPage_Fragment | SearchData_BlogSectionExperience_Fragment | SearchData_Branding_Fragment | SearchData_ButtonBlock_Fragment | SearchData_CTAElement_Fragment | SearchData_CardWithIcon_Fragment | SearchData_CarouselBlock_Fragment | SearchData_ContentRecsElement_Fragment | SearchData_ContinueReadingComponent_Fragment | SearchData_DetailPage_Fragment | SearchData_EventDetails_Fragment | SearchData_EventListPage_Fragment | SearchData_GenericMedia_Fragment | SearchData_GlobalHeader_Fragment | SearchData_HeaderForComponent_Fragment | SearchData_HeaderMainNavigation_Fragment | SearchData_HeadingElement_Fragment | SearchData_HeroBlock_Fragment | SearchData_ImageElement_Fragment | SearchData_ImageMedia_Fragment | SearchData_LandingPage_Fragment | SearchData_LayoutSettingsBlock_Fragment | SearchData_MegaMenuGroupBlock_Fragment | SearchData_MenuNavigationBlock_Fragment | SearchData_MoblieNav_Fragment | SearchData_OdpEmbedBlock_Fragment | SearchData_PageSeoSettings_Fragment | SearchData_ParagraphElement_Fragment | SearchData_QuoteBlock_Fragment | SearchData_RichTextElement_Fragment | SearchData_SOHomePage_Fragment | SearchData_SOLandingPage_Fragment | SearchData_SoCard_Fragment | SearchData_SoColumn_Fragment | SearchData_SoFooter_Fragment | SearchData_SoHero_Fragment | SearchData_SoRow_Fragment | SearchData_SoSection_Fragment | SearchData_SoSectionTwo_Fragment | SearchData_SysContentFolder_Fragment | SearchData_TestimonialElement_Fragment | SearchData_TextBlock_Fragment | SearchData_UpcomingEvents_Fragment | SearchData_VenueDetails_Fragment | SearchData_VenueList_Fragment | SearchData_Venues_Fragment | SearchData_VideoElement_Fragment | SearchData_VideoMedia_Fragment | SearchData__Component_Fragment | SearchData__Content_Fragment | SearchData__Experience_Fragment | SearchData__Folder_Fragment | SearchData__Image_Fragment | SearchData__Media_Fragment | SearchData__Page_Fragment | SearchData__Section_Fragment | SearchData__Video_Fragment;
+export type SearchDataFragment = SearchData_ArticleListElement_Fragment | SearchData_BlankExperience_Fragment | SearchData_BlankSection_Fragment | SearchData_BlogPostPage_Fragment | SearchData_BlogSectionExperience_Fragment | SearchData_Branding_Fragment | SearchData_ButtonBlock_Fragment | SearchData_CTAElement_Fragment | SearchData_CardWithIcon_Fragment | SearchData_CarouselBlock_Fragment | SearchData_ContentRecsElement_Fragment | SearchData_ContinueReadingComponent_Fragment | SearchData_DetailPage_Fragment | SearchData_EventDetails_Fragment | SearchData_EventListPage_Fragment | SearchData_GenericMedia_Fragment | SearchData_GlobalHeader_Fragment | SearchData_HeaderForComponent_Fragment | SearchData_HeaderMainNavigation_Fragment | SearchData_HeadingElement_Fragment | SearchData_HeroBlock_Fragment | SearchData_ImageElement_Fragment | SearchData_ImageMedia_Fragment | SearchData_LandingPage_Fragment | SearchData_LayoutSettingsBlock_Fragment | SearchData_MegaMenuGroupBlock_Fragment | SearchData_MenuNavigationBlock_Fragment | SearchData_MoblieNav_Fragment | SearchData_OdpEmbedBlock_Fragment | SearchData_OptiFormsChoiceElement_Fragment | SearchData_OptiFormsContainerData_Fragment | SearchData_OptiFormsNumberElement_Fragment | SearchData_OptiFormsRangeElement_Fragment | SearchData_OptiFormsResetElement_Fragment | SearchData_OptiFormsSelectionElement_Fragment | SearchData_OptiFormsSubmitElement_Fragment | SearchData_OptiFormsTextareaElement_Fragment | SearchData_OptiFormsTextboxElement_Fragment | SearchData_OptiFormsUrlElement_Fragment | SearchData_PageSeoSettings_Fragment | SearchData_ParagraphElement_Fragment | SearchData_QuoteBlock_Fragment | SearchData_RichTextElement_Fragment | SearchData_SOHomePage_Fragment | SearchData_SOLandingPage_Fragment | SearchData_SoCard_Fragment | SearchData_SoColumn_Fragment | SearchData_SoFooter_Fragment | SearchData_SoHero_Fragment | SearchData_SoRow_Fragment | SearchData_SoSection_Fragment | SearchData_SoSectionTwo_Fragment | SearchData_SysContentFolder_Fragment | SearchData_TestimonialElement_Fragment | SearchData_TextBlock_Fragment | SearchData_UpcomingEvents_Fragment | SearchData_VenueDetails_Fragment | SearchData_VenueList_Fragment | SearchData_Venues_Fragment | SearchData_VideoElement_Fragment | SearchData_VideoMedia_Fragment | SearchData__Component_Fragment | SearchData__Content_Fragment | SearchData__Experience_Fragment | SearchData__Folder_Fragment | SearchData__Image_Fragment | SearchData__Media_Fragment | SearchData__Page_Fragment | SearchData__Section_Fragment | SearchData__Video_Fragment;
 
 export type personalizedSearchContentQueryVariables = Exact<{
   term: Scalars['String']['input'];
@@ -14100,6 +16055,146 @@ type IContentData_OdpEmbedBlock_Fragment = { __typename?: 'OdpEmbedBlock', _type
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IContentData_OdpEmbedBlock_Fragment' };
 
+type IContentData_OptiFormsChoiceElement_Fragment = { __typename?: 'OptiFormsChoiceElement', _type: 'OptiFormsChoiceElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsChoiceElement_Fragment' };
+
+type IContentData_OptiFormsContainerData_Fragment = { __typename?: 'OptiFormsContainerData', _type: 'OptiFormsContainerData', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsContainerData_Fragment' };
+
+type IContentData_OptiFormsNumberElement_Fragment = { __typename?: 'OptiFormsNumberElement', _type: 'OptiFormsNumberElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsNumberElement_Fragment' };
+
+type IContentData_OptiFormsRangeElement_Fragment = { __typename?: 'OptiFormsRangeElement', _type: 'OptiFormsRangeElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsRangeElement_Fragment' };
+
+type IContentData_OptiFormsResetElement_Fragment = { __typename?: 'OptiFormsResetElement', _type: 'OptiFormsResetElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsResetElement_Fragment' };
+
+type IContentData_OptiFormsSelectionElement_Fragment = { __typename?: 'OptiFormsSelectionElement', _type: 'OptiFormsSelectionElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsSelectionElement_Fragment' };
+
+type IContentData_OptiFormsSubmitElement_Fragment = { __typename?: 'OptiFormsSubmitElement', _type: 'OptiFormsSubmitElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsSubmitElement_Fragment' };
+
+type IContentData_OptiFormsTextareaElement_Fragment = { __typename?: 'OptiFormsTextareaElement', _type: 'OptiFormsTextareaElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsTextareaElement_Fragment' };
+
+type IContentData_OptiFormsTextboxElement_Fragment = { __typename?: 'OptiFormsTextboxElement', _type: 'OptiFormsTextboxElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsTextboxElement_Fragment' };
+
+type IContentData_OptiFormsUrlElement_Fragment = { __typename?: 'OptiFormsUrlElement', _type: 'OptiFormsUrlElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IContentData_OptiFormsUrlElement_Fragment' };
+
 type IContentData_PageSeoSettings_Fragment = { __typename?: 'PageSeoSettings', _type: 'PageSeoSettings', _metadata?: (
     { __typename?: 'ContentMetadata' }
     & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
@@ -14534,7 +16629,7 @@ type IContentData__Video_Fragment = { __typename?: '_Video', _type: '_Video', _m
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IContentData__Video_Fragment' };
 
-export type IContentDataFragment = IContentData_ArticleListElement_Fragment | IContentData_BlankExperience_Fragment | IContentData_BlankSection_Fragment | IContentData_BlogPostPage_Fragment | IContentData_BlogSectionExperience_Fragment | IContentData_Branding_Fragment | IContentData_ButtonBlock_Fragment | IContentData_CTAElement_Fragment | IContentData_CardWithIcon_Fragment | IContentData_CarouselBlock_Fragment | IContentData_ContentRecsElement_Fragment | IContentData_ContinueReadingComponent_Fragment | IContentData_DetailPage_Fragment | IContentData_EventDetails_Fragment | IContentData_EventListPage_Fragment | IContentData_GenericMedia_Fragment | IContentData_GlobalHeader_Fragment | IContentData_HeaderForComponent_Fragment | IContentData_HeaderMainNavigation_Fragment | IContentData_HeadingElement_Fragment | IContentData_HeroBlock_Fragment | IContentData_ImageElement_Fragment | IContentData_ImageMedia_Fragment | IContentData_LandingPage_Fragment | IContentData_LayoutSettingsBlock_Fragment | IContentData_MegaMenuGroupBlock_Fragment | IContentData_MenuNavigationBlock_Fragment | IContentData_MoblieNav_Fragment | IContentData_OdpEmbedBlock_Fragment | IContentData_PageSeoSettings_Fragment | IContentData_ParagraphElement_Fragment | IContentData_QuoteBlock_Fragment | IContentData_RichTextElement_Fragment | IContentData_SOHomePage_Fragment | IContentData_SOLandingPage_Fragment | IContentData_SoCard_Fragment | IContentData_SoColumn_Fragment | IContentData_SoFooter_Fragment | IContentData_SoHero_Fragment | IContentData_SoRow_Fragment | IContentData_SoSection_Fragment | IContentData_SoSectionTwo_Fragment | IContentData_SysContentFolder_Fragment | IContentData_TestimonialElement_Fragment | IContentData_TextBlock_Fragment | IContentData_UpcomingEvents_Fragment | IContentData_VenueDetails_Fragment | IContentData_VenueList_Fragment | IContentData_Venues_Fragment | IContentData_VideoElement_Fragment | IContentData_VideoMedia_Fragment | IContentData__Component_Fragment | IContentData__Content_Fragment | IContentData__Experience_Fragment | IContentData__Folder_Fragment | IContentData__Image_Fragment | IContentData__Media_Fragment | IContentData__Page_Fragment | IContentData__Section_Fragment | IContentData__Video_Fragment;
+export type IContentDataFragment = IContentData_ArticleListElement_Fragment | IContentData_BlankExperience_Fragment | IContentData_BlankSection_Fragment | IContentData_BlogPostPage_Fragment | IContentData_BlogSectionExperience_Fragment | IContentData_Branding_Fragment | IContentData_ButtonBlock_Fragment | IContentData_CTAElement_Fragment | IContentData_CardWithIcon_Fragment | IContentData_CarouselBlock_Fragment | IContentData_ContentRecsElement_Fragment | IContentData_ContinueReadingComponent_Fragment | IContentData_DetailPage_Fragment | IContentData_EventDetails_Fragment | IContentData_EventListPage_Fragment | IContentData_GenericMedia_Fragment | IContentData_GlobalHeader_Fragment | IContentData_HeaderForComponent_Fragment | IContentData_HeaderMainNavigation_Fragment | IContentData_HeadingElement_Fragment | IContentData_HeroBlock_Fragment | IContentData_ImageElement_Fragment | IContentData_ImageMedia_Fragment | IContentData_LandingPage_Fragment | IContentData_LayoutSettingsBlock_Fragment | IContentData_MegaMenuGroupBlock_Fragment | IContentData_MenuNavigationBlock_Fragment | IContentData_MoblieNav_Fragment | IContentData_OdpEmbedBlock_Fragment | IContentData_OptiFormsChoiceElement_Fragment | IContentData_OptiFormsContainerData_Fragment | IContentData_OptiFormsNumberElement_Fragment | IContentData_OptiFormsRangeElement_Fragment | IContentData_OptiFormsResetElement_Fragment | IContentData_OptiFormsSelectionElement_Fragment | IContentData_OptiFormsSubmitElement_Fragment | IContentData_OptiFormsTextareaElement_Fragment | IContentData_OptiFormsTextboxElement_Fragment | IContentData_OptiFormsUrlElement_Fragment | IContentData_PageSeoSettings_Fragment | IContentData_ParagraphElement_Fragment | IContentData_QuoteBlock_Fragment | IContentData_RichTextElement_Fragment | IContentData_SOHomePage_Fragment | IContentData_SOLandingPage_Fragment | IContentData_SoCard_Fragment | IContentData_SoColumn_Fragment | IContentData_SoFooter_Fragment | IContentData_SoHero_Fragment | IContentData_SoRow_Fragment | IContentData_SoSection_Fragment | IContentData_SoSectionTwo_Fragment | IContentData_SysContentFolder_Fragment | IContentData_TestimonialElement_Fragment | IContentData_TextBlock_Fragment | IContentData_UpcomingEvents_Fragment | IContentData_VenueDetails_Fragment | IContentData_VenueList_Fragment | IContentData_Venues_Fragment | IContentData_VideoElement_Fragment | IContentData_VideoMedia_Fragment | IContentData__Component_Fragment | IContentData__Content_Fragment | IContentData__Experience_Fragment | IContentData__Folder_Fragment | IContentData__Image_Fragment | IContentData__Media_Fragment | IContentData__Page_Fragment | IContentData__Section_Fragment | IContentData__Video_Fragment;
 
 type IElementData_ArticleListElement_Fragment = { __typename?: 'ArticleListElement', _type: 'ArticleListElement', _metadata?: (
     { __typename?: 'ContentMetadata' }
@@ -14816,6 +16911,146 @@ type IElementData_OdpEmbedBlock_Fragment = { __typename?: 'OdpEmbedBlock', _type
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IElementData_OdpEmbedBlock_Fragment' };
 
+type IElementData_OptiFormsChoiceElement_Fragment = { __typename?: 'OptiFormsChoiceElement', _type: 'OptiFormsChoiceElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsChoiceElement_Fragment' };
+
+type IElementData_OptiFormsContainerData_Fragment = { __typename?: 'OptiFormsContainerData', _type: 'OptiFormsContainerData', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsContainerData_Fragment' };
+
+type IElementData_OptiFormsNumberElement_Fragment = { __typename?: 'OptiFormsNumberElement', _type: 'OptiFormsNumberElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsNumberElement_Fragment' };
+
+type IElementData_OptiFormsRangeElement_Fragment = { __typename?: 'OptiFormsRangeElement', _type: 'OptiFormsRangeElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsRangeElement_Fragment' };
+
+type IElementData_OptiFormsResetElement_Fragment = { __typename?: 'OptiFormsResetElement', _type: 'OptiFormsResetElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsResetElement_Fragment' };
+
+type IElementData_OptiFormsSelectionElement_Fragment = { __typename?: 'OptiFormsSelectionElement', _type: 'OptiFormsSelectionElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsSelectionElement_Fragment' };
+
+type IElementData_OptiFormsSubmitElement_Fragment = { __typename?: 'OptiFormsSubmitElement', _type: 'OptiFormsSubmitElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsSubmitElement_Fragment' };
+
+type IElementData_OptiFormsTextareaElement_Fragment = { __typename?: 'OptiFormsTextareaElement', _type: 'OptiFormsTextareaElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsTextareaElement_Fragment' };
+
+type IElementData_OptiFormsTextboxElement_Fragment = { __typename?: 'OptiFormsTextboxElement', _type: 'OptiFormsTextboxElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsTextboxElement_Fragment' };
+
+type IElementData_OptiFormsUrlElement_Fragment = { __typename?: 'OptiFormsUrlElement', _type: 'OptiFormsUrlElement', _metadata?: (
+    { __typename?: 'ContentMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
+  ) | (
+    { __typename?: 'InstanceMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
+  ) | (
+    { __typename?: 'ItemMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
+  ) | (
+    { __typename?: 'MediaMetadata' }
+    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
+  ) | null } & { ' $fragmentName'?: 'IElementData_OptiFormsUrlElement_Fragment' };
+
 type IElementData_PageSeoSettings_Fragment = { __typename?: 'PageSeoSettings', _type: 'PageSeoSettings', _metadata?: (
     { __typename?: 'ContentMetadata' }
     & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
@@ -15068,7 +17303,7 @@ type IElementData__Section_Fragment = { __typename?: '_Section', _type: '_Sectio
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IElementData__Section_Fragment' };
 
-export type IElementDataFragment = IElementData_ArticleListElement_Fragment | IElementData_BlankSection_Fragment | IElementData_Branding_Fragment | IElementData_ButtonBlock_Fragment | IElementData_CTAElement_Fragment | IElementData_CardWithIcon_Fragment | IElementData_CarouselBlock_Fragment | IElementData_ContentRecsElement_Fragment | IElementData_ContinueReadingComponent_Fragment | IElementData_GlobalHeader_Fragment | IElementData_HeaderForComponent_Fragment | IElementData_HeaderMainNavigation_Fragment | IElementData_HeadingElement_Fragment | IElementData_HeroBlock_Fragment | IElementData_ImageElement_Fragment | IElementData_LayoutSettingsBlock_Fragment | IElementData_MegaMenuGroupBlock_Fragment | IElementData_MenuNavigationBlock_Fragment | IElementData_MoblieNav_Fragment | IElementData_OdpEmbedBlock_Fragment | IElementData_PageSeoSettings_Fragment | IElementData_ParagraphElement_Fragment | IElementData_QuoteBlock_Fragment | IElementData_RichTextElement_Fragment | IElementData_SoCard_Fragment | IElementData_SoColumn_Fragment | IElementData_SoFooter_Fragment | IElementData_SoHero_Fragment | IElementData_SoRow_Fragment | IElementData_SoSection_Fragment | IElementData_SoSectionTwo_Fragment | IElementData_TestimonialElement_Fragment | IElementData_TextBlock_Fragment | IElementData_UpcomingEvents_Fragment | IElementData_Venues_Fragment | IElementData_VideoElement_Fragment | IElementData__Component_Fragment | IElementData__Section_Fragment;
+export type IElementDataFragment = IElementData_ArticleListElement_Fragment | IElementData_BlankSection_Fragment | IElementData_Branding_Fragment | IElementData_ButtonBlock_Fragment | IElementData_CTAElement_Fragment | IElementData_CardWithIcon_Fragment | IElementData_CarouselBlock_Fragment | IElementData_ContentRecsElement_Fragment | IElementData_ContinueReadingComponent_Fragment | IElementData_GlobalHeader_Fragment | IElementData_HeaderForComponent_Fragment | IElementData_HeaderMainNavigation_Fragment | IElementData_HeadingElement_Fragment | IElementData_HeroBlock_Fragment | IElementData_ImageElement_Fragment | IElementData_LayoutSettingsBlock_Fragment | IElementData_MegaMenuGroupBlock_Fragment | IElementData_MenuNavigationBlock_Fragment | IElementData_MoblieNav_Fragment | IElementData_OdpEmbedBlock_Fragment | IElementData_OptiFormsChoiceElement_Fragment | IElementData_OptiFormsContainerData_Fragment | IElementData_OptiFormsNumberElement_Fragment | IElementData_OptiFormsRangeElement_Fragment | IElementData_OptiFormsResetElement_Fragment | IElementData_OptiFormsSelectionElement_Fragment | IElementData_OptiFormsSubmitElement_Fragment | IElementData_OptiFormsTextareaElement_Fragment | IElementData_OptiFormsTextboxElement_Fragment | IElementData_OptiFormsUrlElement_Fragment | IElementData_PageSeoSettings_Fragment | IElementData_ParagraphElement_Fragment | IElementData_QuoteBlock_Fragment | IElementData_RichTextElement_Fragment | IElementData_SoCard_Fragment | IElementData_SoColumn_Fragment | IElementData_SoFooter_Fragment | IElementData_SoHero_Fragment | IElementData_SoRow_Fragment | IElementData_SoSection_Fragment | IElementData_SoSectionTwo_Fragment | IElementData_TestimonialElement_Fragment | IElementData_TextBlock_Fragment | IElementData_UpcomingEvents_Fragment | IElementData_Venues_Fragment | IElementData_VideoElement_Fragment | IElementData__Component_Fragment | IElementData__Section_Fragment;
 
 type ElementData_ArticleListElement_Fragment = (
   { __typename?: 'ArticleListElement' }
@@ -15170,6 +17405,56 @@ type ElementData_OdpEmbedBlock_Fragment = (
   & { ' $fragmentRefs'?: { 'IElementData_OdpEmbedBlock_Fragment': IElementData_OdpEmbedBlock_Fragment } }
 ) & { ' $fragmentName'?: 'ElementData_OdpEmbedBlock_Fragment' };
 
+type ElementData_OptiFormsChoiceElement_Fragment = (
+  { __typename?: 'OptiFormsChoiceElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsChoiceElement_Fragment': IElementData_OptiFormsChoiceElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsChoiceElement_Fragment' };
+
+type ElementData_OptiFormsContainerData_Fragment = (
+  { __typename?: 'OptiFormsContainerData' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsContainerData_Fragment': IElementData_OptiFormsContainerData_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsContainerData_Fragment' };
+
+type ElementData_OptiFormsNumberElement_Fragment = (
+  { __typename?: 'OptiFormsNumberElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsNumberElement_Fragment': IElementData_OptiFormsNumberElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsNumberElement_Fragment' };
+
+type ElementData_OptiFormsRangeElement_Fragment = (
+  { __typename?: 'OptiFormsRangeElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsRangeElement_Fragment': IElementData_OptiFormsRangeElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsRangeElement_Fragment' };
+
+type ElementData_OptiFormsResetElement_Fragment = (
+  { __typename?: 'OptiFormsResetElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsResetElement_Fragment': IElementData_OptiFormsResetElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsResetElement_Fragment' };
+
+type ElementData_OptiFormsSelectionElement_Fragment = (
+  { __typename?: 'OptiFormsSelectionElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsSelectionElement_Fragment': IElementData_OptiFormsSelectionElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsSelectionElement_Fragment' };
+
+type ElementData_OptiFormsSubmitElement_Fragment = (
+  { __typename?: 'OptiFormsSubmitElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsSubmitElement_Fragment': IElementData_OptiFormsSubmitElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsSubmitElement_Fragment' };
+
+type ElementData_OptiFormsTextareaElement_Fragment = (
+  { __typename?: 'OptiFormsTextareaElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsTextareaElement_Fragment': IElementData_OptiFormsTextareaElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsTextareaElement_Fragment' };
+
+type ElementData_OptiFormsTextboxElement_Fragment = (
+  { __typename?: 'OptiFormsTextboxElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsTextboxElement_Fragment': IElementData_OptiFormsTextboxElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsTextboxElement_Fragment' };
+
+type ElementData_OptiFormsUrlElement_Fragment = (
+  { __typename?: 'OptiFormsUrlElement' }
+  & { ' $fragmentRefs'?: { 'IElementData_OptiFormsUrlElement_Fragment': IElementData_OptiFormsUrlElement_Fragment } }
+) & { ' $fragmentName'?: 'ElementData_OptiFormsUrlElement_Fragment' };
+
 type ElementData_PageSeoSettings_Fragment = (
   { __typename?: 'PageSeoSettings' }
   & { ' $fragmentRefs'?: { 'IElementData_PageSeoSettings_Fragment': IElementData_PageSeoSettings_Fragment } }
@@ -15260,7 +17545,7 @@ type ElementData__Section_Fragment = (
   & { ' $fragmentRefs'?: { 'IElementData__Section_Fragment': IElementData__Section_Fragment } }
 ) & { ' $fragmentName'?: 'ElementData__Section_Fragment' };
 
-export type ElementDataFragment = ElementData_ArticleListElement_Fragment | ElementData_BlankSection_Fragment | ElementData_Branding_Fragment | ElementData_ButtonBlock_Fragment | ElementData_CTAElement_Fragment | ElementData_CardWithIcon_Fragment | ElementData_CarouselBlock_Fragment | ElementData_ContentRecsElement_Fragment | ElementData_ContinueReadingComponent_Fragment | ElementData_GlobalHeader_Fragment | ElementData_HeaderForComponent_Fragment | ElementData_HeaderMainNavigation_Fragment | ElementData_HeadingElement_Fragment | ElementData_HeroBlock_Fragment | ElementData_ImageElement_Fragment | ElementData_LayoutSettingsBlock_Fragment | ElementData_MegaMenuGroupBlock_Fragment | ElementData_MenuNavigationBlock_Fragment | ElementData_MoblieNav_Fragment | ElementData_OdpEmbedBlock_Fragment | ElementData_PageSeoSettings_Fragment | ElementData_ParagraphElement_Fragment | ElementData_QuoteBlock_Fragment | ElementData_RichTextElement_Fragment | ElementData_SoCard_Fragment | ElementData_SoColumn_Fragment | ElementData_SoFooter_Fragment | ElementData_SoHero_Fragment | ElementData_SoRow_Fragment | ElementData_SoSection_Fragment | ElementData_SoSectionTwo_Fragment | ElementData_TestimonialElement_Fragment | ElementData_TextBlock_Fragment | ElementData_UpcomingEvents_Fragment | ElementData_Venues_Fragment | ElementData_VideoElement_Fragment | ElementData__Component_Fragment | ElementData__Section_Fragment;
+export type ElementDataFragment = ElementData_ArticleListElement_Fragment | ElementData_BlankSection_Fragment | ElementData_Branding_Fragment | ElementData_ButtonBlock_Fragment | ElementData_CTAElement_Fragment | ElementData_CardWithIcon_Fragment | ElementData_CarouselBlock_Fragment | ElementData_ContentRecsElement_Fragment | ElementData_ContinueReadingComponent_Fragment | ElementData_GlobalHeader_Fragment | ElementData_HeaderForComponent_Fragment | ElementData_HeaderMainNavigation_Fragment | ElementData_HeadingElement_Fragment | ElementData_HeroBlock_Fragment | ElementData_ImageElement_Fragment | ElementData_LayoutSettingsBlock_Fragment | ElementData_MegaMenuGroupBlock_Fragment | ElementData_MenuNavigationBlock_Fragment | ElementData_MoblieNav_Fragment | ElementData_OdpEmbedBlock_Fragment | ElementData_OptiFormsChoiceElement_Fragment | ElementData_OptiFormsContainerData_Fragment | ElementData_OptiFormsNumberElement_Fragment | ElementData_OptiFormsRangeElement_Fragment | ElementData_OptiFormsResetElement_Fragment | ElementData_OptiFormsSelectionElement_Fragment | ElementData_OptiFormsSubmitElement_Fragment | ElementData_OptiFormsTextareaElement_Fragment | ElementData_OptiFormsTextboxElement_Fragment | ElementData_OptiFormsUrlElement_Fragment | ElementData_PageSeoSettings_Fragment | ElementData_ParagraphElement_Fragment | ElementData_QuoteBlock_Fragment | ElementData_RichTextElement_Fragment | ElementData_SoCard_Fragment | ElementData_SoColumn_Fragment | ElementData_SoFooter_Fragment | ElementData_SoHero_Fragment | ElementData_SoRow_Fragment | ElementData_SoSection_Fragment | ElementData_SoSectionTwo_Fragment | ElementData_TestimonialElement_Fragment | ElementData_TextBlock_Fragment | ElementData_UpcomingEvents_Fragment | ElementData_Venues_Fragment | ElementData_VideoElement_Fragment | ElementData__Component_Fragment | ElementData__Section_Fragment;
 
 type BlockData_ArticleListElement_Fragment = (
   { __typename?: 'ArticleListElement' }
@@ -15362,6 +17647,56 @@ type BlockData_OdpEmbedBlock_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
 ) & { ' $fragmentName'?: 'BlockData_OdpEmbedBlock_Fragment' };
 
+type BlockData_OptiFormsChoiceElement_Fragment = (
+  { __typename?: 'OptiFormsChoiceElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsChoiceElement_Fragment' };
+
+type BlockData_OptiFormsContainerData_Fragment = (
+  { __typename?: 'OptiFormsContainerData' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsContainerData_Fragment' };
+
+type BlockData_OptiFormsNumberElement_Fragment = (
+  { __typename?: 'OptiFormsNumberElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsNumberElement_Fragment' };
+
+type BlockData_OptiFormsRangeElement_Fragment = (
+  { __typename?: 'OptiFormsRangeElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsRangeElement_Fragment' };
+
+type BlockData_OptiFormsResetElement_Fragment = (
+  { __typename?: 'OptiFormsResetElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsResetElement_Fragment' };
+
+type BlockData_OptiFormsSelectionElement_Fragment = (
+  { __typename?: 'OptiFormsSelectionElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsSelectionElement_Fragment' };
+
+type BlockData_OptiFormsSubmitElement_Fragment = (
+  { __typename?: 'OptiFormsSubmitElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsSubmitElement_Fragment' };
+
+type BlockData_OptiFormsTextareaElement_Fragment = (
+  { __typename?: 'OptiFormsTextareaElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsTextareaElement_Fragment' };
+
+type BlockData_OptiFormsTextboxElement_Fragment = (
+  { __typename?: 'OptiFormsTextboxElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsTextboxElement_Fragment' };
+
+type BlockData_OptiFormsUrlElement_Fragment = (
+  { __typename?: 'OptiFormsUrlElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+) & { ' $fragmentName'?: 'BlockData_OptiFormsUrlElement_Fragment' };
+
 type BlockData_PageSeoSettings_Fragment = (
   { __typename?: 'PageSeoSettings' }
   & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -15452,7 +17787,7 @@ type BlockData__Section_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData__Section_Fragment': IContentData__Section_Fragment } }
 ) & { ' $fragmentName'?: 'BlockData__Section_Fragment' };
 
-export type BlockDataFragment = BlockData_ArticleListElement_Fragment | BlockData_BlankSection_Fragment | BlockData_Branding_Fragment | BlockData_ButtonBlock_Fragment | BlockData_CTAElement_Fragment | BlockData_CardWithIcon_Fragment | BlockData_CarouselBlock_Fragment | BlockData_ContentRecsElement_Fragment | BlockData_ContinueReadingComponent_Fragment | BlockData_GlobalHeader_Fragment | BlockData_HeaderForComponent_Fragment | BlockData_HeaderMainNavigation_Fragment | BlockData_HeadingElement_Fragment | BlockData_HeroBlock_Fragment | BlockData_ImageElement_Fragment | BlockData_LayoutSettingsBlock_Fragment | BlockData_MegaMenuGroupBlock_Fragment | BlockData_MenuNavigationBlock_Fragment | BlockData_MoblieNav_Fragment | BlockData_OdpEmbedBlock_Fragment | BlockData_PageSeoSettings_Fragment | BlockData_ParagraphElement_Fragment | BlockData_QuoteBlock_Fragment | BlockData_RichTextElement_Fragment | BlockData_SoCard_Fragment | BlockData_SoColumn_Fragment | BlockData_SoFooter_Fragment | BlockData_SoHero_Fragment | BlockData_SoRow_Fragment | BlockData_SoSection_Fragment | BlockData_SoSectionTwo_Fragment | BlockData_TestimonialElement_Fragment | BlockData_TextBlock_Fragment | BlockData_UpcomingEvents_Fragment | BlockData_Venues_Fragment | BlockData_VideoElement_Fragment | BlockData__Component_Fragment | BlockData__Section_Fragment;
+export type BlockDataFragment = BlockData_ArticleListElement_Fragment | BlockData_BlankSection_Fragment | BlockData_Branding_Fragment | BlockData_ButtonBlock_Fragment | BlockData_CTAElement_Fragment | BlockData_CardWithIcon_Fragment | BlockData_CarouselBlock_Fragment | BlockData_ContentRecsElement_Fragment | BlockData_ContinueReadingComponent_Fragment | BlockData_GlobalHeader_Fragment | BlockData_HeaderForComponent_Fragment | BlockData_HeaderMainNavigation_Fragment | BlockData_HeadingElement_Fragment | BlockData_HeroBlock_Fragment | BlockData_ImageElement_Fragment | BlockData_LayoutSettingsBlock_Fragment | BlockData_MegaMenuGroupBlock_Fragment | BlockData_MenuNavigationBlock_Fragment | BlockData_MoblieNav_Fragment | BlockData_OdpEmbedBlock_Fragment | BlockData_OptiFormsChoiceElement_Fragment | BlockData_OptiFormsContainerData_Fragment | BlockData_OptiFormsNumberElement_Fragment | BlockData_OptiFormsRangeElement_Fragment | BlockData_OptiFormsResetElement_Fragment | BlockData_OptiFormsSelectionElement_Fragment | BlockData_OptiFormsSubmitElement_Fragment | BlockData_OptiFormsTextareaElement_Fragment | BlockData_OptiFormsTextboxElement_Fragment | BlockData_OptiFormsUrlElement_Fragment | BlockData_PageSeoSettings_Fragment | BlockData_ParagraphElement_Fragment | BlockData_QuoteBlock_Fragment | BlockData_RichTextElement_Fragment | BlockData_SoCard_Fragment | BlockData_SoColumn_Fragment | BlockData_SoFooter_Fragment | BlockData_SoHero_Fragment | BlockData_SoRow_Fragment | BlockData_SoSection_Fragment | BlockData_SoSectionTwo_Fragment | BlockData_TestimonialElement_Fragment | BlockData_TextBlock_Fragment | BlockData_UpcomingEvents_Fragment | BlockData_Venues_Fragment | BlockData_VideoElement_Fragment | BlockData__Component_Fragment | BlockData__Section_Fragment;
 
 type PageData_ArticleListElement_Fragment = (
   { __typename?: 'ArticleListElement' }
@@ -15598,6 +17933,56 @@ type PageData_OdpEmbedBlock_Fragment = (
   { __typename?: 'OdpEmbedBlock' }
   & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
 ) & { ' $fragmentName'?: 'PageData_OdpEmbedBlock_Fragment' };
+
+type PageData_OptiFormsChoiceElement_Fragment = (
+  { __typename?: 'OptiFormsChoiceElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsChoiceElement_Fragment' };
+
+type PageData_OptiFormsContainerData_Fragment = (
+  { __typename?: 'OptiFormsContainerData' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsContainerData_Fragment' };
+
+type PageData_OptiFormsNumberElement_Fragment = (
+  { __typename?: 'OptiFormsNumberElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsNumberElement_Fragment' };
+
+type PageData_OptiFormsRangeElement_Fragment = (
+  { __typename?: 'OptiFormsRangeElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsRangeElement_Fragment' };
+
+type PageData_OptiFormsResetElement_Fragment = (
+  { __typename?: 'OptiFormsResetElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsResetElement_Fragment' };
+
+type PageData_OptiFormsSelectionElement_Fragment = (
+  { __typename?: 'OptiFormsSelectionElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsSelectionElement_Fragment' };
+
+type PageData_OptiFormsSubmitElement_Fragment = (
+  { __typename?: 'OptiFormsSubmitElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsSubmitElement_Fragment' };
+
+type PageData_OptiFormsTextareaElement_Fragment = (
+  { __typename?: 'OptiFormsTextareaElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsTextareaElement_Fragment' };
+
+type PageData_OptiFormsTextboxElement_Fragment = (
+  { __typename?: 'OptiFormsTextboxElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsTextboxElement_Fragment' };
+
+type PageData_OptiFormsUrlElement_Fragment = (
+  { __typename?: 'OptiFormsUrlElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+) & { ' $fragmentName'?: 'PageData_OptiFormsUrlElement_Fragment' };
 
 type PageData_PageSeoSettings_Fragment = (
   { __typename?: 'PageSeoSettings' }
@@ -15754,7 +18139,7 @@ type PageData__Video_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData__Video_Fragment': IContentData__Video_Fragment } }
 ) & { ' $fragmentName'?: 'PageData__Video_Fragment' };
 
-export type PageDataFragment = PageData_ArticleListElement_Fragment | PageData_BlankExperience_Fragment | PageData_BlankSection_Fragment | PageData_BlogPostPage_Fragment | PageData_BlogSectionExperience_Fragment | PageData_Branding_Fragment | PageData_ButtonBlock_Fragment | PageData_CTAElement_Fragment | PageData_CardWithIcon_Fragment | PageData_CarouselBlock_Fragment | PageData_ContentRecsElement_Fragment | PageData_ContinueReadingComponent_Fragment | PageData_DetailPage_Fragment | PageData_EventDetails_Fragment | PageData_EventListPage_Fragment | PageData_GenericMedia_Fragment | PageData_GlobalHeader_Fragment | PageData_HeaderForComponent_Fragment | PageData_HeaderMainNavigation_Fragment | PageData_HeadingElement_Fragment | PageData_HeroBlock_Fragment | PageData_ImageElement_Fragment | PageData_ImageMedia_Fragment | PageData_LandingPage_Fragment | PageData_LayoutSettingsBlock_Fragment | PageData_MegaMenuGroupBlock_Fragment | PageData_MenuNavigationBlock_Fragment | PageData_MoblieNav_Fragment | PageData_OdpEmbedBlock_Fragment | PageData_PageSeoSettings_Fragment | PageData_ParagraphElement_Fragment | PageData_QuoteBlock_Fragment | PageData_RichTextElement_Fragment | PageData_SOHomePage_Fragment | PageData_SOLandingPage_Fragment | PageData_SoCard_Fragment | PageData_SoColumn_Fragment | PageData_SoFooter_Fragment | PageData_SoHero_Fragment | PageData_SoRow_Fragment | PageData_SoSection_Fragment | PageData_SoSectionTwo_Fragment | PageData_SysContentFolder_Fragment | PageData_TestimonialElement_Fragment | PageData_TextBlock_Fragment | PageData_UpcomingEvents_Fragment | PageData_VenueDetails_Fragment | PageData_VenueList_Fragment | PageData_Venues_Fragment | PageData_VideoElement_Fragment | PageData_VideoMedia_Fragment | PageData__Component_Fragment | PageData__Content_Fragment | PageData__Experience_Fragment | PageData__Folder_Fragment | PageData__Image_Fragment | PageData__Media_Fragment | PageData__Page_Fragment | PageData__Section_Fragment | PageData__Video_Fragment;
+export type PageDataFragment = PageData_ArticleListElement_Fragment | PageData_BlankExperience_Fragment | PageData_BlankSection_Fragment | PageData_BlogPostPage_Fragment | PageData_BlogSectionExperience_Fragment | PageData_Branding_Fragment | PageData_ButtonBlock_Fragment | PageData_CTAElement_Fragment | PageData_CardWithIcon_Fragment | PageData_CarouselBlock_Fragment | PageData_ContentRecsElement_Fragment | PageData_ContinueReadingComponent_Fragment | PageData_DetailPage_Fragment | PageData_EventDetails_Fragment | PageData_EventListPage_Fragment | PageData_GenericMedia_Fragment | PageData_GlobalHeader_Fragment | PageData_HeaderForComponent_Fragment | PageData_HeaderMainNavigation_Fragment | PageData_HeadingElement_Fragment | PageData_HeroBlock_Fragment | PageData_ImageElement_Fragment | PageData_ImageMedia_Fragment | PageData_LandingPage_Fragment | PageData_LayoutSettingsBlock_Fragment | PageData_MegaMenuGroupBlock_Fragment | PageData_MenuNavigationBlock_Fragment | PageData_MoblieNav_Fragment | PageData_OdpEmbedBlock_Fragment | PageData_OptiFormsChoiceElement_Fragment | PageData_OptiFormsContainerData_Fragment | PageData_OptiFormsNumberElement_Fragment | PageData_OptiFormsRangeElement_Fragment | PageData_OptiFormsResetElement_Fragment | PageData_OptiFormsSelectionElement_Fragment | PageData_OptiFormsSubmitElement_Fragment | PageData_OptiFormsTextareaElement_Fragment | PageData_OptiFormsTextboxElement_Fragment | PageData_OptiFormsUrlElement_Fragment | PageData_PageSeoSettings_Fragment | PageData_ParagraphElement_Fragment | PageData_QuoteBlock_Fragment | PageData_RichTextElement_Fragment | PageData_SOHomePage_Fragment | PageData_SOLandingPage_Fragment | PageData_SoCard_Fragment | PageData_SoColumn_Fragment | PageData_SoFooter_Fragment | PageData_SoHero_Fragment | PageData_SoRow_Fragment | PageData_SoSection_Fragment | PageData_SoSectionTwo_Fragment | PageData_SysContentFolder_Fragment | PageData_TestimonialElement_Fragment | PageData_TextBlock_Fragment | PageData_UpcomingEvents_Fragment | PageData_VenueDetails_Fragment | PageData_VenueList_Fragment | PageData_Venues_Fragment | PageData_VideoElement_Fragment | PageData_VideoMedia_Fragment | PageData__Component_Fragment | PageData__Content_Fragment | PageData__Experience_Fragment | PageData__Folder_Fragment | PageData__Image_Fragment | PageData__Media_Fragment | PageData__Page_Fragment | PageData__Section_Fragment | PageData__Video_Fragment;
 
 export type LinkDataFragment = { __typename?: 'ContentUrl', base?: string | null, default?: string | null } & { ' $fragmentName'?: 'LinkDataFragment' };
 
@@ -15930,6 +18315,56 @@ type IContentListItem_OdpEmbedBlock_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment } }
 ) & { ' $fragmentName'?: 'IContentListItem_OdpEmbedBlock_Fragment' };
 
+type IContentListItem_OptiFormsChoiceElement_Fragment = (
+  { __typename?: 'OptiFormsChoiceElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsChoiceElement_Fragment' };
+
+type IContentListItem_OptiFormsContainerData_Fragment = (
+  { __typename?: 'OptiFormsContainerData' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsContainerData_Fragment' };
+
+type IContentListItem_OptiFormsNumberElement_Fragment = (
+  { __typename?: 'OptiFormsNumberElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsNumberElement_Fragment' };
+
+type IContentListItem_OptiFormsRangeElement_Fragment = (
+  { __typename?: 'OptiFormsRangeElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsRangeElement_Fragment' };
+
+type IContentListItem_OptiFormsResetElement_Fragment = (
+  { __typename?: 'OptiFormsResetElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsResetElement_Fragment' };
+
+type IContentListItem_OptiFormsSelectionElement_Fragment = (
+  { __typename?: 'OptiFormsSelectionElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsSelectionElement_Fragment' };
+
+type IContentListItem_OptiFormsSubmitElement_Fragment = (
+  { __typename?: 'OptiFormsSubmitElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsSubmitElement_Fragment' };
+
+type IContentListItem_OptiFormsTextareaElement_Fragment = (
+  { __typename?: 'OptiFormsTextareaElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsTextareaElement_Fragment' };
+
+type IContentListItem_OptiFormsTextboxElement_Fragment = (
+  { __typename?: 'OptiFormsTextboxElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsTextboxElement_Fragment' };
+
+type IContentListItem_OptiFormsUrlElement_Fragment = (
+  { __typename?: 'OptiFormsUrlElement' }
+  & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment } }
+) & { ' $fragmentName'?: 'IContentListItem_OptiFormsUrlElement_Fragment' };
+
 type IContentListItem_PageSeoSettings_Fragment = (
   { __typename?: 'PageSeoSettings' }
   & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment } }
@@ -16085,7 +18520,7 @@ type IContentListItem__Video_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData__Video_Fragment': IContentData__Video_Fragment } }
 ) & { ' $fragmentName'?: 'IContentListItem__Video_Fragment' };
 
-export type IContentListItemFragment = IContentListItem_ArticleListElement_Fragment | IContentListItem_BlankExperience_Fragment | IContentListItem_BlankSection_Fragment | IContentListItem_BlogPostPage_Fragment | IContentListItem_BlogSectionExperience_Fragment | IContentListItem_Branding_Fragment | IContentListItem_ButtonBlock_Fragment | IContentListItem_CTAElement_Fragment | IContentListItem_CardWithIcon_Fragment | IContentListItem_CarouselBlock_Fragment | IContentListItem_ContentRecsElement_Fragment | IContentListItem_ContinueReadingComponent_Fragment | IContentListItem_DetailPage_Fragment | IContentListItem_EventDetails_Fragment | IContentListItem_EventListPage_Fragment | IContentListItem_GenericMedia_Fragment | IContentListItem_GlobalHeader_Fragment | IContentListItem_HeaderForComponent_Fragment | IContentListItem_HeaderMainNavigation_Fragment | IContentListItem_HeadingElement_Fragment | IContentListItem_HeroBlock_Fragment | IContentListItem_ImageElement_Fragment | IContentListItem_ImageMedia_Fragment | IContentListItem_LandingPage_Fragment | IContentListItem_LayoutSettingsBlock_Fragment | IContentListItem_MegaMenuGroupBlock_Fragment | IContentListItem_MenuNavigationBlock_Fragment | IContentListItem_MoblieNav_Fragment | IContentListItem_OdpEmbedBlock_Fragment | IContentListItem_PageSeoSettings_Fragment | IContentListItem_ParagraphElement_Fragment | IContentListItem_QuoteBlock_Fragment | IContentListItem_RichTextElement_Fragment | IContentListItem_SOHomePage_Fragment | IContentListItem_SOLandingPage_Fragment | IContentListItem_SoCard_Fragment | IContentListItem_SoColumn_Fragment | IContentListItem_SoFooter_Fragment | IContentListItem_SoHero_Fragment | IContentListItem_SoRow_Fragment | IContentListItem_SoSection_Fragment | IContentListItem_SoSectionTwo_Fragment | IContentListItem_SysContentFolder_Fragment | IContentListItem_TestimonialElement_Fragment | IContentListItem_TextBlock_Fragment | IContentListItem_UpcomingEvents_Fragment | IContentListItem_VenueDetails_Fragment | IContentListItem_VenueList_Fragment | IContentListItem_Venues_Fragment | IContentListItem_VideoElement_Fragment | IContentListItem_VideoMedia_Fragment | IContentListItem__Component_Fragment | IContentListItem__Content_Fragment | IContentListItem__Experience_Fragment | IContentListItem__Folder_Fragment | IContentListItem__Image_Fragment | IContentListItem__Media_Fragment | IContentListItem__Page_Fragment | IContentListItem__Section_Fragment | IContentListItem__Video_Fragment;
+export type IContentListItemFragment = IContentListItem_ArticleListElement_Fragment | IContentListItem_BlankExperience_Fragment | IContentListItem_BlankSection_Fragment | IContentListItem_BlogPostPage_Fragment | IContentListItem_BlogSectionExperience_Fragment | IContentListItem_Branding_Fragment | IContentListItem_ButtonBlock_Fragment | IContentListItem_CTAElement_Fragment | IContentListItem_CardWithIcon_Fragment | IContentListItem_CarouselBlock_Fragment | IContentListItem_ContentRecsElement_Fragment | IContentListItem_ContinueReadingComponent_Fragment | IContentListItem_DetailPage_Fragment | IContentListItem_EventDetails_Fragment | IContentListItem_EventListPage_Fragment | IContentListItem_GenericMedia_Fragment | IContentListItem_GlobalHeader_Fragment | IContentListItem_HeaderForComponent_Fragment | IContentListItem_HeaderMainNavigation_Fragment | IContentListItem_HeadingElement_Fragment | IContentListItem_HeroBlock_Fragment | IContentListItem_ImageElement_Fragment | IContentListItem_ImageMedia_Fragment | IContentListItem_LandingPage_Fragment | IContentListItem_LayoutSettingsBlock_Fragment | IContentListItem_MegaMenuGroupBlock_Fragment | IContentListItem_MenuNavigationBlock_Fragment | IContentListItem_MoblieNav_Fragment | IContentListItem_OdpEmbedBlock_Fragment | IContentListItem_OptiFormsChoiceElement_Fragment | IContentListItem_OptiFormsContainerData_Fragment | IContentListItem_OptiFormsNumberElement_Fragment | IContentListItem_OptiFormsRangeElement_Fragment | IContentListItem_OptiFormsResetElement_Fragment | IContentListItem_OptiFormsSelectionElement_Fragment | IContentListItem_OptiFormsSubmitElement_Fragment | IContentListItem_OptiFormsTextareaElement_Fragment | IContentListItem_OptiFormsTextboxElement_Fragment | IContentListItem_OptiFormsUrlElement_Fragment | IContentListItem_PageSeoSettings_Fragment | IContentListItem_ParagraphElement_Fragment | IContentListItem_QuoteBlock_Fragment | IContentListItem_RichTextElement_Fragment | IContentListItem_SOHomePage_Fragment | IContentListItem_SOLandingPage_Fragment | IContentListItem_SoCard_Fragment | IContentListItem_SoColumn_Fragment | IContentListItem_SoFooter_Fragment | IContentListItem_SoHero_Fragment | IContentListItem_SoRow_Fragment | IContentListItem_SoSection_Fragment | IContentListItem_SoSectionTwo_Fragment | IContentListItem_SysContentFolder_Fragment | IContentListItem_TestimonialElement_Fragment | IContentListItem_TextBlock_Fragment | IContentListItem_UpcomingEvents_Fragment | IContentListItem_VenueDetails_Fragment | IContentListItem_VenueList_Fragment | IContentListItem_Venues_Fragment | IContentListItem_VideoElement_Fragment | IContentListItem_VideoMedia_Fragment | IContentListItem__Component_Fragment | IContentListItem__Content_Fragment | IContentListItem__Experience_Fragment | IContentListItem__Folder_Fragment | IContentListItem__Image_Fragment | IContentListItem__Media_Fragment | IContentListItem__Page_Fragment | IContentListItem__Section_Fragment | IContentListItem__Video_Fragment;
 
 type ExperienceData_BlankExperience_Fragment = { __typename?: 'BlankExperience', composition?: (
     { __typename?: 'CompositionStructureNode', nodes?: Array<(
@@ -16281,6 +18716,36 @@ export type CompositionComponentNodeDataFragment = { __typename?: 'CompositionCo
     { __typename?: 'OdpEmbedBlock' }
     & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'ElementData_OdpEmbedBlock_Fragment': ElementData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
   ) | (
+    { __typename?: 'OptiFormsChoiceElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment;'ElementData_OptiFormsChoiceElement_Fragment': ElementData_OptiFormsChoiceElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsContainerData' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment;'ElementData_OptiFormsContainerData_Fragment': ElementData_OptiFormsContainerData_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsNumberElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment;'ElementData_OptiFormsNumberElement_Fragment': ElementData_OptiFormsNumberElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsRangeElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment;'ElementData_OptiFormsRangeElement_Fragment': ElementData_OptiFormsRangeElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsResetElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment;'ElementData_OptiFormsResetElement_Fragment': ElementData_OptiFormsResetElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSelectionElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment;'ElementData_OptiFormsSelectionElement_Fragment': ElementData_OptiFormsSelectionElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsSubmitElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment;'ElementData_OptiFormsSubmitElement_Fragment': ElementData_OptiFormsSubmitElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextareaElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment;'ElementData_OptiFormsTextareaElement_Fragment': ElementData_OptiFormsTextareaElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsTextboxElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment;'ElementData_OptiFormsTextboxElement_Fragment': ElementData_OptiFormsTextboxElement_Fragment } }
+  ) | (
+    { __typename?: 'OptiFormsUrlElement' }
+    & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment;'ElementData_OptiFormsUrlElement_Fragment': ElementData_OptiFormsUrlElement_Fragment } }
+  ) | (
     { __typename?: 'PageSeoSettings' }
     & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'ElementData_PageSeoSettings_Fragment': ElementData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
   ) | (
@@ -16437,6 +18902,36 @@ export type getContentByIdQuery = { __typename?: 'Query', content?: { __typename
     ) | (
       { __typename?: 'OdpEmbedBlock' }
       & { ' $fragmentRefs'?: { 'BlockData_OdpEmbedBlock_Fragment': BlockData_OdpEmbedBlock_Fragment;'PageData_OdpEmbedBlock_Fragment': PageData_OdpEmbedBlock_Fragment;'OdpEmbedBlockDataFragment': OdpEmbedBlockDataFragment } }
+    ) | (
+      { __typename?: 'OptiFormsChoiceElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsChoiceElement_Fragment': BlockData_OptiFormsChoiceElement_Fragment;'PageData_OptiFormsChoiceElement_Fragment': PageData_OptiFormsChoiceElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsContainerData' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsContainerData_Fragment': BlockData_OptiFormsContainerData_Fragment;'PageData_OptiFormsContainerData_Fragment': PageData_OptiFormsContainerData_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsNumberElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsNumberElement_Fragment': BlockData_OptiFormsNumberElement_Fragment;'PageData_OptiFormsNumberElement_Fragment': PageData_OptiFormsNumberElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsRangeElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsRangeElement_Fragment': BlockData_OptiFormsRangeElement_Fragment;'PageData_OptiFormsRangeElement_Fragment': PageData_OptiFormsRangeElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsResetElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsResetElement_Fragment': BlockData_OptiFormsResetElement_Fragment;'PageData_OptiFormsResetElement_Fragment': PageData_OptiFormsResetElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsSelectionElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSelectionElement_Fragment': BlockData_OptiFormsSelectionElement_Fragment;'PageData_OptiFormsSelectionElement_Fragment': PageData_OptiFormsSelectionElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsSubmitElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsSubmitElement_Fragment': BlockData_OptiFormsSubmitElement_Fragment;'PageData_OptiFormsSubmitElement_Fragment': PageData_OptiFormsSubmitElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsTextareaElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextareaElement_Fragment': BlockData_OptiFormsTextareaElement_Fragment;'PageData_OptiFormsTextareaElement_Fragment': PageData_OptiFormsTextareaElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsTextboxElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsTextboxElement_Fragment': BlockData_OptiFormsTextboxElement_Fragment;'PageData_OptiFormsTextboxElement_Fragment': PageData_OptiFormsTextboxElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsUrlElement' }
+      & { ' $fragmentRefs'?: { 'BlockData_OptiFormsUrlElement_Fragment': BlockData_OptiFormsUrlElement_Fragment;'PageData_OptiFormsUrlElement_Fragment': PageData_OptiFormsUrlElement_Fragment } }
     ) | (
       { __typename?: 'PageSeoSettings' }
       & { ' $fragmentRefs'?: { 'BlockData_PageSeoSettings_Fragment': BlockData_PageSeoSettings_Fragment;'PageData_PageSeoSettings_Fragment': PageData_PageSeoSettings_Fragment;'PageSeoSettingsDataFragment': PageSeoSettingsDataFragment } }
@@ -16627,6 +19122,36 @@ export type getContentByPathQuery = { __typename?: 'Query', content?: { __typena
       { __typename?: 'OdpEmbedBlock' }
       & { ' $fragmentRefs'?: { 'IContentData_OdpEmbedBlock_Fragment': IContentData_OdpEmbedBlock_Fragment;'PageData_OdpEmbedBlock_Fragment': PageData_OdpEmbedBlock_Fragment } }
     ) | (
+      { __typename?: 'OptiFormsChoiceElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsChoiceElement_Fragment': IContentData_OptiFormsChoiceElement_Fragment;'PageData_OptiFormsChoiceElement_Fragment': PageData_OptiFormsChoiceElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsContainerData' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsContainerData_Fragment': IContentData_OptiFormsContainerData_Fragment;'PageData_OptiFormsContainerData_Fragment': PageData_OptiFormsContainerData_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsNumberElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsNumberElement_Fragment': IContentData_OptiFormsNumberElement_Fragment;'PageData_OptiFormsNumberElement_Fragment': PageData_OptiFormsNumberElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsRangeElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsRangeElement_Fragment': IContentData_OptiFormsRangeElement_Fragment;'PageData_OptiFormsRangeElement_Fragment': PageData_OptiFormsRangeElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsResetElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsResetElement_Fragment': IContentData_OptiFormsResetElement_Fragment;'PageData_OptiFormsResetElement_Fragment': PageData_OptiFormsResetElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsSelectionElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSelectionElement_Fragment': IContentData_OptiFormsSelectionElement_Fragment;'PageData_OptiFormsSelectionElement_Fragment': PageData_OptiFormsSelectionElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsSubmitElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsSubmitElement_Fragment': IContentData_OptiFormsSubmitElement_Fragment;'PageData_OptiFormsSubmitElement_Fragment': PageData_OptiFormsSubmitElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsTextareaElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextareaElement_Fragment': IContentData_OptiFormsTextareaElement_Fragment;'PageData_OptiFormsTextareaElement_Fragment': PageData_OptiFormsTextareaElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsTextboxElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsTextboxElement_Fragment': IContentData_OptiFormsTextboxElement_Fragment;'PageData_OptiFormsTextboxElement_Fragment': PageData_OptiFormsTextboxElement_Fragment } }
+    ) | (
+      { __typename?: 'OptiFormsUrlElement' }
+      & { ' $fragmentRefs'?: { 'IContentData_OptiFormsUrlElement_Fragment': IContentData_OptiFormsUrlElement_Fragment;'PageData_OptiFormsUrlElement_Fragment': PageData_OptiFormsUrlElement_Fragment } }
+    ) | (
       { __typename?: 'PageSeoSettings' }
       & { ' $fragmentRefs'?: { 'IContentData_PageSeoSettings_Fragment': IContentData_PageSeoSettings_Fragment;'PageData_PageSeoSettings_Fragment': PageData_PageSeoSettings_Fragment } }
     ) | (
@@ -16730,7 +19255,7 @@ export type getContentTypeQueryVariables = Exact<{
 }>;
 
 
-export type getContentTypeQuery = { __typename?: 'Query', content?: { __typename?: '_ContentOutput', total?: number | null, items?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogSectionExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Branding', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CardWithIcon', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContinueReadingComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'DetailPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventDetails', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventListPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GlobalHeader', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeaderForComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeaderMainNavigation', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutSettingsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MoblieNav', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'RichTextElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SOHomePage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SOLandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoCard', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoColumn', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoFooter', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoHero', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoRow', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoSectionTwo', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'UpcomingEvents', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VenueDetails', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VenueList', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Venues', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | null };
+export type getContentTypeQuery = { __typename?: 'Query', content?: { __typename?: '_ContentOutput', total?: number | null, items?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogSectionExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Branding', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CardWithIcon', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContinueReadingComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'DetailPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventDetails', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventListPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GlobalHeader', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeaderForComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeaderMainNavigation', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutSettingsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MoblieNav', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsChoiceElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsContainerData', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsNumberElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsRangeElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsResetElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsSelectionElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsSubmitElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsTextareaElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsTextboxElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OptiFormsUrlElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'RichTextElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SOHomePage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SOLandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoCard', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoColumn', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoFooter', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoHero', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoRow', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SoSectionTwo', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'UpcomingEvents', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VenueDetails', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VenueList', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Venues', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | null };
 
 export const LinkDataFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LinkData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentUrl"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"base"}},{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]} as unknown as DocumentNode<LinkDataFragment, unknown>;
 export const ReferenceDataFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentReference"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"LinkData"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LinkData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentUrl"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"base"}},{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]} as unknown as DocumentNode<ReferenceDataFragment, unknown>;

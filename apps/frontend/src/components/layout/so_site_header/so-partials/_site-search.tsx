@@ -46,9 +46,9 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
   const { isLoading, data } = useQuickSearch(quickSearchTerm);
   const container = useRef<HTMLDivElement | null>(null);
   const resultTerm = data?.term;
-//  const { data: lastTerms } = useLastTerms(
-//    searchConfig.show_recent_searches ? searchConfig.recent_search_count : 0,
-//  );
+  const { data: lastTerms } = useLastTerms(
+    searchConfig.show_recent_searches ? searchConfig.recent_search_count : 0,
+  );
 
   // Close search on click outside of search box
   useEffect(() => {
