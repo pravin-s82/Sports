@@ -1,0 +1,45 @@
+{
+  "key": "SoFooter",
+  "displayName": "Footer - Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "ColumnTextOne": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Column One Text",
+      "description": "Enter text for column one.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "ColumnTextTwo": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Column Two Text",
+      "description": "Enter text for column two.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "ColumnTextThree": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Column Three Text",
+      "description": "Enter text for column three.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    }
+  }
+}

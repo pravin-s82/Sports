@@ -1,0 +1,67 @@
+{
+  "key": "SOLandingPage",
+  "displayName": "SOLandingPage",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "LandingPageTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "MainContentArea": {
+      "type": "array",
+      "displayName": "MainContentArea",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "SoSectionTwo",
+          "SoColumn",
+          "SoSection",
+          "SoCard"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "LandingDescription": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "SeoSettings": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SeoSettings",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SeoSettings",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

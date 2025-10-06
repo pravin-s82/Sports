@@ -1,0 +1,58 @@
+{
+  "key": "SoHero",
+  "displayName": "Hero - Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "BackgroundImage": {
+      "type": "contentReference",
+      "displayName": "Background Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "Heading": {
+      "type": "string",
+      "displayName": "Heading",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "HeroTeaser": {
+      "type": "string",
+      "displayName": "Teaser",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Link": {
+      "type": "url",
+      "displayName": "Button Link",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    }
+  }
+}

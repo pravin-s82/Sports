@@ -1,0 +1,34 @@
+{
+  "key": "UpcomingEvents",
+  "displayName": "Upcoming Events",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "UpcomingEventTitle": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "EventListRoot": {
+      "type": "contentReference",
+      "displayName": "EventListRoot",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "allowedTypes": [],
+      "restrictedTypes": []
+    }
+  }
+}

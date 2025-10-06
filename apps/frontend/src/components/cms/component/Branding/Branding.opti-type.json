@@ -1,0 +1,26 @@
+{
+  "key": "Branding",
+  "displayName": "Branding",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "SOLogo": {
+      "type": "contentReference",
+      "displayName": "SOLogo",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    }
+  }
+}

@@ -1,0 +1,15 @@
+query GetVenueDetails($key: String!, $locale: [Locales!]) {
+  VenueDetails(
+    where: { _metadata: { key: { eq: $key } } }
+    locale: $locale
+  ) {
+    items {
+      Name
+      Address
+      CallInNumber
+      Policies {
+        html
+      }
+    }
+  }
+}

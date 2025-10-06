@@ -1,0 +1,88 @@
+{
+  "key": "EventDetails",
+  "displayName": "Event Details",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "Description": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "PreviewText": {
+      "type": "string",
+      "displayName": "Preview Text",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 50,
+      "editorSettings": {}
+    },
+    "StartDate": {
+      "type": "dateTime",
+      "displayName": "Event Start Date",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    },
+    "EndDate": {
+      "type": "dateTime",
+      "displayName": "Event End Date",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 200,
+      "editorSettings": {}
+    },
+    "PhoneNumber": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "PhoneNumber",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 325,
+      "editorSettings": {}
+    },
+    "SelectVenue": {
+      "type": "contentReference",
+      "displayName": "Venue",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 450,
+      "editorSettings": {},
+      "allowedTypes": [],
+      "restrictedTypes": []
+    }
+  }
+}

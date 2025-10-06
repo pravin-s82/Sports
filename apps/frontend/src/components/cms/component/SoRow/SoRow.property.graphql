@@ -1,0 +1,4 @@
+fragment SoRowPropertyData on SoRowProperty {
+  Modifiers
+  Column { ...SoColumnPropertyData }
+}

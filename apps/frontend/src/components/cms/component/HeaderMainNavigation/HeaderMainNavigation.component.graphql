@@ -1,0 +1,3 @@
+fragment HeaderMainNavigationData on HeaderMainNavigation {
+  MenuLink { ...LinkItemData }
+}

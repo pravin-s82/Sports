@@ -1,0 +1,24 @@
+query GetEventsForVenue($venueKey: String!, $locale: [Locales!]) {
+  EventDetails(
+    where: {
+      SelectVenue: {
+        key: {
+          eq: $venueKey
+        }
+      }
+    },
+    locale: $locale
+  ) {
+    items {
+      Title
+      StartDate
+      EndDate
+      PreviewText
+       _metadata {
+        url {
+          default
+        }
+      }
+    }
+  }
+}

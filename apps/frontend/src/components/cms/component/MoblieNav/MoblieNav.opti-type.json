@@ -1,0 +1,11 @@
+{
+  "key": "MoblieNav",
+  "displayName": "MoblieNav",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {}
+}

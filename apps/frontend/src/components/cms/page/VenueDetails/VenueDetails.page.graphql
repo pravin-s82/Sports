@@ -1,0 +1,9 @@
+fragment VenueDetailsData on VenueDetails {
+  Name
+  Policies { json, html }
+  Address
+  CallInNumber
+   _metadata {
+    published
+  }
+}

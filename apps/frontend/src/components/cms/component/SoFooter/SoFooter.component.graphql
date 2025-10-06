@@ -1,0 +1,5 @@
+fragment SoFooterData on SoFooter {
+  ColumnTextOne { json, html }
+  ColumnTextTwo { json, html }
+  ColumnTextThree { json, html }
+}

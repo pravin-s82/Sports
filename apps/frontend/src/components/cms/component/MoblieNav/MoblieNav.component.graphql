@@ -1,0 +1,3 @@
+fragment MoblieNavData on MoblieNav {
+  empty: _metadata { key }
+}

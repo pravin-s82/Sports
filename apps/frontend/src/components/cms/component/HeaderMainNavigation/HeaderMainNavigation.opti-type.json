@@ -1,0 +1,27 @@
+{
+  "key": "HeaderMainNavigation",
+  "displayName": "Header Main Navigation-Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "MenuLink": {
+      "type": "array",
+      "format": "LinkCollection",
+      "displayName": "Menu Link",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "component",
+        "contentType": "link"
+      }
+    }
+  }
+}

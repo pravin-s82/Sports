@@ -1,0 +1,41 @@
+{
+  "key": "SoRow",
+  "displayName": "Row - Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "Modifiers": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Modifiers",
+      "description": "Add additional CSS classes",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Column": {
+      "type": "array",
+      "displayName": "Column",
+      "description": "Add columns",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {},
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "type": "component",
+        "contentType": "SoColumn"
+      }
+    }
+  }
+}

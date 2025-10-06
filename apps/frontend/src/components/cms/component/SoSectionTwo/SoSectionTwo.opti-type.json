@@ -1,0 +1,49 @@
+{
+  "key": "SoSectionTwo",
+  "displayName": "Section Two - Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "Modifiers": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Modifiers",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Content": {
+      "type": "array",
+      "displayName": "Content",
+      "description": "Enter content for section.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": [
+          "Page",
+          "MegaMenuGroupBlock",
+          "LayoutSettingsBlock",
+          "PageSeoSettings",
+          "MenuNavigationBlock",
+          "SoSectionTwo",
+          "SoFooter",
+          "SoSection"
+        ]
+      }
+    }
+  }
+}

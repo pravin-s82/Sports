@@ -1,0 +1,50 @@
+{
+  "key": "VenueList",
+  "displayName": "Venue List Page",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "VenueTitle": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "VenueBody": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Body",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    },
+    "VenueMainContentArea": {
+      "type": "array",
+      "displayName": "Venue Page Main Content Area",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 200,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

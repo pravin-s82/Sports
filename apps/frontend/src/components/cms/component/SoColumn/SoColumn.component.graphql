@@ -1,0 +1,4 @@
+fragment SoColumnData on SoColumn {
+  ColumnClasses
+  ColumnContent { ...BlockData }
+}

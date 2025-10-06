@@ -1,0 +1,15 @@
+query GetAllVenue($locale: [Locales!]) {
+  VenueDetails(locale: $locale) {
+    items {
+      _metadata {
+        key
+        url {
+          default
+        }
+      }
+      Name
+      Address
+      CallInNumber
+    }
+  }
+}

@@ -1,0 +1,6 @@
+fragment SOLandingPageData on SOLandingPage {
+  LandingPageTitle
+  MainContentArea { ...BlockData }
+  LandingDescription { json, html }
+  SeoSettings { ...PageSeoSettingsPropertyData }
+}

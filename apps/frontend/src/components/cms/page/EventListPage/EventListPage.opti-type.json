@@ -1,0 +1,50 @@
+{
+  "key": "EventListPage",
+  "displayName": "Event List Page",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "EventTitle": {
+      "type": "string",
+      "displayName": "Ttile",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "EventBody": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Body",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "EventMainContentArea": {
+      "type": "array",
+      "displayName": "Event Page Main Content Area",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

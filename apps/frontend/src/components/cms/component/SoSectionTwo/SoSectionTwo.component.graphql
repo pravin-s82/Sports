@@ -1,0 +1,4 @@
+fragment SoSectionTwoData on SoSectionTwo {
+  Modifiers
+  Content { ...BlockData }
+}

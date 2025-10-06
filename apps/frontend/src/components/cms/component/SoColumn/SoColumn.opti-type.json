@@ -1,0 +1,65 @@
+{
+  "key": "SoColumn",
+  "displayName": "Column - Sports Orbit",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "ContentRecsElement",
+    "ContinueReadingComponent",
+    "ImageElement",
+    "HeadingElement",
+    "CTAElement",
+    "ParagraphElement",
+    "ArticleListElement",
+    "OdpEmbedBlock",
+    "CarouselBlock",
+    "QuoteBlock",
+    "ButtonBlock",
+    "RichTextElement",
+    "VideoElement",
+    "TestimonialElement",
+    "TextBlock",
+    "SoCard",
+    "SoRow"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "ColumnClasses": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Column Classes",
+      "description": "i.e. col-md-3, col-md-4, col-md-6, col",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "ColumnContent": {
+      "type": "array",
+      "displayName": "Column Content",
+      "description": "Add content for the column.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": [
+          "Page",
+          "MegaMenuGroupBlock",
+          "MenuNavigationBlock",
+          "HeroBlock",
+          "PageSeoSettings",
+          "SoSection"
+        ]
+      }
+    }
+  }
+}

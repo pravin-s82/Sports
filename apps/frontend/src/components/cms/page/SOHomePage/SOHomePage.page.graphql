@@ -1,0 +1,8 @@
+fragment SOHomePageData on SOHomePage {
+  WebSiteLogo { ...BlockData }
+  MainNavigation { ...BlockData }
+  HomePageFooterNavigation { ...BlockData }
+  Title
+  BannerContentArea { ...BlockData }
+  HomeMainContentArea { ...BlockData }
+}

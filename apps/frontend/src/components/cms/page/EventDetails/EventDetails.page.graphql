@@ -1,0 +1,9 @@
+fragment EventDetailsData on EventDetails {
+  Title
+  Description { json, html }
+  PreviewText
+  StartDate
+  EndDate
+  PhoneNumber
+  SelectVenue { ...ReferenceData }
+}

@@ -1,0 +1,105 @@
+{
+  "key": "SOHomePage",
+  "displayName": "Home Page",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "WebSiteLogo": {
+      "type": "array",
+      "displayName": "WebSite Logo",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SiteSettings",
+      "sortOrder": -200,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "Branding"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "MainNavigation": {
+      "type": "array",
+      "displayName": "Main Navigation",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SiteSettings",
+      "sortOrder": -100,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "HeaderMainNavigation"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "HomePageFooterNavigation": {
+      "type": "array",
+      "displayName": "Footer",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SiteSettings",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "SoFooter"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "Title": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 5,
+      "editorSettings": {}
+    },
+    "BannerContentArea": {
+      "type": "array",
+      "displayName": "Banner Content Area",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    },
+    "HomeMainContentArea": {
+      "type": "array",
+      "displayName": "MainContentArea",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 15,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

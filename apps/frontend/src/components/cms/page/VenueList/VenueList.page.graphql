@@ -1,0 +1,5 @@
+fragment VenueListData on VenueList {
+  VenueTitle
+  VenueBody { json, html }
+  VenueMainContentArea { ...BlockData }
+}

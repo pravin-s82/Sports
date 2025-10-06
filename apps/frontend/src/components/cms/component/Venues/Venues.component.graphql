@@ -1,0 +1,4 @@
+fragment VenuesData on Venues {
+  VenueTitle
+  VenueListRoot { ...IContentListItem }
+}

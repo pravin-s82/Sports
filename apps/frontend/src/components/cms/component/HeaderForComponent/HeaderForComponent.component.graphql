@@ -1,0 +1,3 @@
+fragment HeaderForComponentData on HeaderForComponent {
+  HeaderForComponent
+}

@@ -1,0 +1,45 @@
+{
+  "key": "CardWithIcon",
+  "displayName": "Card With Icon",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "properties": {
+    "CardTitle": {
+      "type": "string",
+      "displayName": "Card Title",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Icon": {
+      "type": "string",
+      "displayName": "Icon",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Body": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Body",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    }
+  }
+}

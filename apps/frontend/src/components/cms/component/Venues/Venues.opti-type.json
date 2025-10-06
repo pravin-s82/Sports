@@ -1,0 +1,39 @@
+{
+  "key": "Venues",
+  "displayName": "Venues",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "VenueTitle": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "VenueListRoot": {
+      "type": "array",
+      "displayName": "Venue List Root Item",
+      "description": "Select Root item for Upcoming Venue List.",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "VenueList"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

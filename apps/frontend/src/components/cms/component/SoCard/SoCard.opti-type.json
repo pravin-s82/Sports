@@ -1,0 +1,60 @@
+{
+  "key": "SoCard",
+  "displayName": "Card - Sports Orbit",
+  "description": "A card for Sports Orbit",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "properties": {
+    "Image": {
+      "type": "contentReference",
+      "displayName": "Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "Heading": {
+      "type": "string",
+      "displayName": "Heading",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Teaser": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Teaser",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {}
+    },
+    "Link": {
+      "type": "component",
+      "contentType": "link",
+      "displayName": "Link",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 200,
+      "editorSettings": {}
+    }
+  }
+}

@@ -1,0 +1,6 @@
+fragment SoHeroData on SoHero {
+  BackgroundImage { ...ReferenceData }
+  Heading
+  HeroTeaser
+  Link { ...LinkData }
+}

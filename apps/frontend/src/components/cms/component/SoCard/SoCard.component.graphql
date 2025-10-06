@@ -1,0 +1,6 @@
+fragment SoCardData on SoCard {
+  Image { ...ReferenceData }
+  Heading
+  Teaser { json, html }
+  Link { ...LinkData }
+}

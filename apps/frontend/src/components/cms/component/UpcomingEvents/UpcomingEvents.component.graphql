@@ -1,0 +1,4 @@
+fragment UpcomingEventsData on UpcomingEvents {
+  UpcomingEventTitle
+  EventListRoot { ...ReferenceData }
+}

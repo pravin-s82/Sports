@@ -1,0 +1,46 @@
+{
+  "key": "GlobalHeader",
+  "displayName": "Global Header",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "MainMenu": {
+      "type": "array",
+      "displayName": "Main Navigation Menu",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "HeaderMainNavigation"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "SiteLogo": {
+      "type": "array",
+      "displayName": "SiteLogo",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "Branding"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

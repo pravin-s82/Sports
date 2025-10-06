@@ -1,0 +1,4 @@
+fragment SoSectionData on SoSection {
+  Modifiers
+  Row { ...SoRowPropertyData }
+}

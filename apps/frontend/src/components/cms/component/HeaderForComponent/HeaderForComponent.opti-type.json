@@ -1,0 +1,23 @@
+{
+  "key": "HeaderForComponent",
+  "displayName": "Header For Component",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "HeaderForComponent": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Header",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

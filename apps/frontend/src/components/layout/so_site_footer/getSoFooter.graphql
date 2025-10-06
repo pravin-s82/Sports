@@ -1,0 +1,23 @@
+query getSoFooterData($domain: String, $locale: [Locales!]) {
+    appLayout: SoFooter(
+        where: {
+            _or: [
+                { appIdentifiers: { exist: false } }
+                {
+                    _and: [{ appIdentifiers: { exist: true } }, { appIdentifiers: { eq: $domain } }]
+                }
+            ]
+        }
+        locale: $locale
+    )  {
+        items {
+            _metadata {
+                key
+                displayName
+            }
+            ColumnTextOne { json, html }
+            ColumnTextTwo { json, html }
+            ColumnTextThree { json, html }
+        }
+    }
+}

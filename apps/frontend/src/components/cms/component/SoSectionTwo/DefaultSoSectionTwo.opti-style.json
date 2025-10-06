@@ -1,0 +1,20 @@
+{
+  "key": "DefaultSoSectionTwo",
+  "displayName": "Default Section Two - Sports Orbit",
+  "contentType": "SoSectionTwo",
+  "isDefault": true,
+  "settings": {
+    "variants": {
+      "displayName": "Variants",
+      "editor": "",
+      "choices": {
+        "gray": {
+          "displayName": "Gray"
+        },
+        "blue": {
+          "displayName": "Blue"
+        }
+      }
+    }
+  }
+}

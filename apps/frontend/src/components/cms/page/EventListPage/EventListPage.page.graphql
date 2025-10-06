@@ -1,0 +1,5 @@
+fragment EventListPageData on EventListPage {
+  EventTitle
+  EventBody { json, html }
+  EventMainContentArea { ...BlockData }
+}

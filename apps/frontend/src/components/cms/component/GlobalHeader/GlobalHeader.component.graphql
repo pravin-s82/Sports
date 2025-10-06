@@ -1,0 +1,4 @@
+fragment GlobalHeaderData on GlobalHeader {
+  MainMenu { ...IContentListItem }
+  SiteLogo { ...IContentListItem }
+}

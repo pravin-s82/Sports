@@ -1,0 +1,14 @@
+query getSoHeaderData($locale: [Locales!]) {
+  appLayout: GlobalHeader(locale: $locale) {
+    items {
+      MainMenu {       
+        ...IContentData
+        ...HeaderMainNavigationData
+      }
+      SiteLogo{
+        ...IContentData
+        ...BrandingData
+      }
+    }
+  }
+}

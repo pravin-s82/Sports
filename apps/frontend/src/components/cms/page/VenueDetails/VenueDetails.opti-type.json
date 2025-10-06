@@ -1,0 +1,55 @@
+{
+  "key": "VenueDetails",
+  "displayName": "Venue Details",
+  "description": "The Venue page will be based on the Detail Page type with additional files like Venue date. Venue pages are used to represent Venues on the website.",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "Name": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "Policies": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Policies",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Address": {
+      "type": "string",
+      "displayName": "Address",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "CallInNumber": {
+      "type": "string",
+      "displayName": "Call-in-number",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

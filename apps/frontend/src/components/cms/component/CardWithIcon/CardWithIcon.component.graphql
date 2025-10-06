@@ -1,0 +1,5 @@
+fragment CardWithIconData on CardWithIcon {
+  CardTitle
+  Icon
+  Body { json, html }
+}

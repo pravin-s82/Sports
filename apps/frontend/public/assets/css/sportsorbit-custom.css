@@ -1,0 +1,336 @@
+cagov-pagination {
+    white-space: nowrap;
+    font-size: .9rem;
+}
+
+    cagov-pagination a {
+        text-decoration: none !important;
+    }
+
+    cagov-pagination .cagov-pagination__list {
+        list-style: none;
+        margin: 0;
+        padding: 0 !important;
+        display: flex;
+        overflow: auto !important;
+    }
+
+    cagov-pagination .cagov-pagination__item {
+        margin: var(--s-sm, 0.25rem);
+    }
+
+        cagov-pagination .cagov-pagination__item a {
+            padding: 6px 14px;
+            display: inline-block;
+            color: #4a4958;
+        }
+
+            cagov-pagination .cagov-pagination__item a:hover, cagov-pagination .cagov-pagination__item a:focus {
+                box-shadow: inset 0 0 0 3px #d4d4d7;
+            }
+
+        cagov-pagination .cagov-pagination__item.cagov-pagination-current {
+            font-weight: 700;
+        }
+
+            cagov-pagination .cagov-pagination__item.cagov-pagination-current a {
+                box-shadow: inset 0 0 0 1px #d4d4d7;
+            }
+
+        cagov-pagination .cagov-pagination__item.cagov-pagination__overflow {
+            border: none;
+            padding: 0.875rem 0;
+        }
+
+        cagov-pagination .cagov-pagination__item:has(.cagov-pagination__link-inactive) {
+            display: none;
+        }
+
+.ca-gov-icon-arrow-prev, .ca-gov-icon-arrow-next {
+    font-size: 0.86em;
+}
+
+.featurecontentwithimage {
+    margin-bottom: 50px; /* Space between sections */
+    overflow: hidden; /* Clearfix to handle floated elements */
+}
+
+    .featurecontentwithimage .detail-page_image_wrapper {
+        max-width: 22.5rem; /* Set image width */
+        float: left; /* Float the image */
+        margin-right: 20px; /* Space between the image and text */
+        margin-bottom: 15px; /* Space below the image */
+    }
+
+    .featurecontentwithimage .detail-page__imager {
+        width: 100%; /* Make image responsive */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure image covers the area */
+        border-radius: 8px; /* Rounded corners for the image */
+    }
+
+    .featurecontentwithimage .detail-page__content {
+        font-size: 1.3125rem;
+        line-height: 2rem;
+        box-sizing: border-box;
+        margin-left: 0; /* Ensure no left margin */
+    }
+
+    .featurecontentwithimage ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .featurecontentwithimage::after {
+        content: "";
+        display: table;
+        /*clear: both;*/ /* Clear the float */
+    }
+
+.detail-page_image_wrapper {
+    max-width: 22.5rem; /* Allows responsiveness */
+    width: 100%; /* Ensures it adjusts within its parent */
+    margin-right: 60px;
+    float: left;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.detail-page__imager {
+    width: 100%; /* Ensures the image scales properly */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image fills its container without distortion */
+    border-radius: .625rem; /* Keeps your rounded corners */
+    display: block;
+}
+
+
+.detail-page__content {
+    font-size: 1.3125rem;
+    box-sizing: border-box;
+    line-height: 2rem;
+    clear: both; /* Ensures content starts below floated image */
+}
+
+/* Find an Office links */
+
+.divisionButton {
+    margin: 8px;
+    padding: 10px 4px;
+    text-align: center;
+    width: 190px;
+    color: #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+a .divisionButton {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.linkHQ:hover {
+    background-color: #FFFF66 !important;
+    text-decoration: none !important;
+}
+
+.linkHQ {
+    background-color: #FFCC00 !important;
+}
+
+
+
+.linkNorthDivision:hover {
+    background-color: #92B789 !important;
+    text-decoration: none !important;
+}
+
+.linkNorthDivision {
+    background-color: #72A850 !important;
+}
+
+.linkValleyDivision:hover {
+    background-color: #7EB4D6 !important;
+    text-decoration: none !important;
+}
+
+.linkValleyDivision {
+    background-color: #48A2CB !important;
+}
+
+.linkGoldenGateDivision:hover {
+    background-color: #E4B6AB !important;
+    text-decoration: none !important;
+}
+
+.linkGoldenGateDivision {
+    background-color: #C46D45 !important;
+}
+
+.linkCentralDivision:hover {
+    background-color: #97A0C5 !important;
+    text-decoration: none !important;
+}
+
+.linkCentralDivision {
+    background-color: #717FAC !important;
+}
+
+.linkSouthernDivision:hover {
+    background-color: #E2AE59 !important;
+    text-decoration: none !important;
+}
+
+.linkSouthernDivision {
+    background-color: #E7A538 !important;
+}
+
+.linkBorderDivision:hover {
+    background-color: #68A0A5 !important;
+    text-decoration: none !important;
+}
+
+.linkBorderDivision {
+    background-color: #3D9593 !important;
+}
+
+.linkCoastalDivision:hover {
+    background-color: #BB849F !important;
+    text-decoration: none !important;
+}
+
+.linkCoastalDivision {
+    background-color: #A73E7E !important;
+}
+
+.linkInlandDivision:hover {
+    background-color: #EBD88C !important;
+    text-decoration: none !important;
+}
+
+.linkInlandDivision {
+    background-color: #E6C63F !important;
+}
+
+.carddeckwithimage .image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+    .carddeckwithimage .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.carddeckwithimage article {
+    height: 100% !important;
+}
+
+.profilecard .row figure.executive-profile {
+    height: 100% !important;
+}
+
+    .profilecard .row figure.executive-profile .executive-profile-body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .profilecard .row figure.executive-profile .executive-profile-body p:last-child {
+            margin-top: auto;
+        }
+
+/* Toggle Google Translate drawer */
+.utility-header__drawer {
+    display: none;
+}
+
+    .utility-header__drawer[aria-expanded="true"] {
+        display: block;
+    }
+
+/* Google Translate */
+.google-translate__label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.google-translate select {
+    padding: 0.5rem;
+}
+
+.hero-image-top {
+    /* DEFAULT IS CENTER */
+    background-position: top center !important;
+}
+
+.hero-content-width {
+    max-width: 1176px;
+    margin: auto;
+}
+
+.header-primary-banner::before {
+    content: "";
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0) 65%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.header-primary-banner .row {
+    position: relative;
+    z-index: 1;
+    transition: padding-top 500ms;
+}
+
+/* Small */
+@media (max-width: 767.98px) {
+    .header-primary-banner .row {
+        padding-top: 200px;
+    }
+
+    .header-primary-banner h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .header-primary-banner .row {
+        padding-top: 300px;
+    }
+
+    .header-primary-banner h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .header-primary-banner .row {
+        padding-top: 350px;
+    }
+
+    .header-primary-banner h1 {
+        font-size: 2.25rem;
+    }
+}
+.form-check-input {
+    border: 1px solid rgb(118, 118, 118)
+}
+
+@font-face {
+  font-family: CaGov;
+  src: url("../fonts/CaGov.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
