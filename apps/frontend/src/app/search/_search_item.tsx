@@ -23,7 +23,6 @@ export const SearchResultItem : FunctionComponent<SearchResultItemProps> = ({ it
             </div>} 
             { item.abstract && <ItemText text={ item.abstract } /> }
         </Link>
-        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas accusamus voluptas, iste magnam vel enim dolorem ab repellat sed voluptatum! Corrupti id saepe, tenetur expedita vel dolore? Sint, eligendi necessitatibus?</span>
     </div>
 }
 
