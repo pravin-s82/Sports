@@ -25,6 +25,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
+          
+      - name: Enable Corepack and prepare Yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.1 --activate
 
       - name: Install dependencies and build app
         working-directory: apps/frontend
