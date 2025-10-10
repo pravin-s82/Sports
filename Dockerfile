@@ -11,7 +11,7 @@ COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 # Install dependencies
-RUN yarn install --check-cache || yarn install
+RUN yarn install --verbose
 
 # Copy source and build
 COPY . .
