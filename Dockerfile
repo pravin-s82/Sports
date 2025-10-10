@@ -2,16 +2,15 @@
 FROM node:18-bullseye AS builder
 WORKDIR /app
 
-# Enable and activate correct Yarn version
-RUN corepack enable
-RUN corepack prepare yarn@4.9.1 --activate
+# Enable correct Yarn version
+RUN corepack enable && corepack prepare yarn@4.9.1 --activate
 
-# Copy Yarn metadata and config
+# Copy dependency manifests and Yarn config
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
-# Install dependencies
-RUN yarn install --verbose
+# Install dependencies (no immutable/check-cache/frozen flags)
+RUN yarn install
 
 # Copy source and build
 COPY . .
