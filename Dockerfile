@@ -12,7 +12,7 @@ COPY package.json yarn.lock ./
 RUN corepack prepare yarn@4.9.1 --activate
 
 # Install dependencies
-RUN yarn install --immutable
+RUN yarn install  --frozen-lockfile
 
 # Copy all source code
 COPY . .
