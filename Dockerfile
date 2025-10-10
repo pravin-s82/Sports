@@ -2,11 +2,17 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 
+# Enable corepack to manage Yarn versions
+RUN corepack enable
+
 # Copy dependency files first for caching
 COPY package.json yarn.lock ./
 
+# Ensure correct Yarn version (Yarn 4.9.1)
+RUN corepack prepare yarn@4.9.1 --activate
+
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 # Copy all source code
 COPY . .
@@ -17,6 +23,8 @@ RUN yarn build
 # ---------- Runtime Stage ----------
 FROM node:18-alpine
 WORKDIR /app
+
+RUN corepack enable && corepack prepare yarn@4.9.1 --activate
 
 # Copy built app from builder
 COPY --from=builder /app ./
