@@ -1,26 +1,24 @@
 # ---------- Stage 1: Build ----------
-FROM node:18-alpine AS builder
+FROM node:18-bullseye AS builder
 WORKDIR /app
 
-# Enable Corepack (manages Yarn versions)
+# Enable and activate correct Yarn version
 RUN corepack enable
 RUN corepack prepare yarn@4.9.1 --activate
 
-# Copy dependency files
+# Copy Yarn metadata and config
 COPY package.json yarn.lock .yarnrc.yml ./
-
-# Copy the Yarn metadata folder if present
 COPY .yarn ./.yarn
 
-# Install dependencies (no --immutable for CI)
-RUN yarn install --frozen-lockfile
+# Install dependencies
+RUN yarn install --check-cache || yarn install
 
 # Copy source and build
 COPY . .
 RUN yarn build
 
 # ---------- Stage 2: Runtime ----------
-FROM node:18-alpine
+FROM node:18-bullseye
 WORKDIR /app
 
 RUN corepack enable && corepack prepare yarn@4.9.1 --activate
