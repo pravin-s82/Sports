@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 env:
-  REGISTRY_NAME: <your-acr-name>
+  REGISTRY_NAME: opticmssaas
   IMAGE_NAME: optimizely-nextjs-frontend
-  WEBAPP_NAME: <your-webapp-name>
-  NODE_VERSION: 18
+  WEBAPP_NAME: opti-cms-saas-nextjs
+  NODE_VERSION: 22.19
 
 jobs:
   build-and-deploy:
