@@ -56,13 +56,19 @@ jobs:
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
 
-      - name: Build Docker image
+      # Build Docker image
+      - name: Build Docker Image
         run: |
-          docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+          docker build \
+            -t $REGISTRY_NAME.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }} \
+            -t $REGISTRY_NAME.azurecr.io/${{ env.IMAGE_NAME }}:latest \
+            .
 
-      - name: Push Docker image
+      # Push to ACR
+      - name: Push Docker Image to ACR
         run: |
-          docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push $REGISTRY_NAME.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push $REGISTRY_NAME.azurecr.io/${{ env.IMAGE_NAME }}:latest
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
