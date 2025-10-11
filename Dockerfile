@@ -9,6 +9,9 @@ RUN corepack enable && corepack prepare yarn@4.9.1 --activate
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
+# Copy the local .tgz dependency before install
+COPY packages/graphql-codegen-visitor-plugin-common-v5.8.0-patched.tgz ./packages/
+
 # Install dependencies (no immutable/check-cache/frozen flags)
 RUN yarn install
 
