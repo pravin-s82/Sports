@@ -1,9 +1,9 @@
 name: Deploy Azure Web App Service 
 
 on:
-  #push:
-  #  branches:
-  #    - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -11,22 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: 📦 Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Enable Corepack and prepare Yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.1 --activate
 
-      - name: 🏗️ Build Next.js app
-        run: yarn build
+      - name: Install dependencies and build app
+        working-directory: apps/frontend
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
 
-      - name: 🔧 Export build artifacts
+      - name: Export build artifacts
         run: |
           echo "Creating deploy folder..."
           mkdir deploy
@@ -35,6 +39,6 @@ jobs:
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'my-optimizely-nextjs'   # <-- replace with your app name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: 'opti-cms-saas-nextjs-no-container'   # <-- replace with your app name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_NC }}
           package: ./deploy
