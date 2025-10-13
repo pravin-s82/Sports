@@ -1,0 +1,40 @@
+name: Deploy Azure Web App Service 
+
+on:
+  #push:
+  #  branches:
+  #    - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      - name: 📦 Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: 🏗️ Build Next.js app
+        run: yarn build
+
+      - name: 🔧 Export build artifacts
+        run: |
+          echo "Creating deploy folder..."
+          mkdir deploy
+          cp -r .next public package.json yarn.lock next.config.js deploy/
+
+      - name: 🚀 Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'my-optimizely-nextjs'   # <-- replace with your app name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./deploy
