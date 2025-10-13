@@ -1,9 +1,9 @@
-name: Build and Deploy Optimizely CMS SaaS Frontend (Next.js)
+name: Deploy Azure Web App Container 
 
 on:
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
   workflow_dispatch:
 
 env:
