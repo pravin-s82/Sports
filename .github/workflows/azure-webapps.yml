@@ -39,7 +39,7 @@ jobs:
           mkdir deploy
           cp -r apps/frontend/.next deploy/
           cp -r apps/frontend/public deploy/
-          cp package.json deploy/
+          cp apps/frontend/package.json deploy/
           cp yarn.lock deploy/
 
       - name: 🚀 Deploy to Azure Web App
