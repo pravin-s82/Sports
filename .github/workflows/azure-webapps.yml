@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  NODE_VERSION: 22.19
+  WEBAPP_NAME: opti-cms-saas-nextjs-no-container
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -34,11 +38,13 @@ jobs:
         run: |
           echo "Creating deploy folder..."
           mkdir deploy
-          cp -r package.json yarn.lock deploy/
+          cp -r apps/frontend/.next apps/frontend/public deploy/
+          cp apps/frontend/package.json apps/frontend/yarn.lock deploy/
+
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'opti-cms-saas-nextjs-no-container'   # <-- replace with your app name
+          app-name: ${{ env.WEBAPP_NAME }}   # <-- replace with your app name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_NC }}
           package: ./deploy
