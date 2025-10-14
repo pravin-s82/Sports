@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifact for deployment
         run: |
           mkdir -p ./artifact
-          cp -r apps/frontend/.next apps/frontend/public apps/frontend/next.config.js package.json yarn.lock ./artifact
+          cp -r apps/frontend/.next apps/frontend/public apps/frontend/next.config.js apps/frontend/package.json yarn.lock ./artifact
 
 
       - name: 🚀 Deploy to Azure Web App
