@@ -29,18 +29,18 @@ jobs:
           corepack prepare yarn@4.9.1 --activate
 
       - name: Install dependencies and build app
-        working-directory: apps/frontend
         run: |
           yarn install --frozen-lockfile
-          yarn build
+          yarn workspace frontend build
 
       - name: Export build artifacts
         run: |
           echo "Creating deploy folder..."
           mkdir deploy
-          cp -r apps/frontend/.next apps/frontend/public deploy/
-          cp package.json yarn.lock deploy/
-
+          cp -r apps/frontend/.next deploy/
+          cp -r apps/frontend/public deploy/
+          cp apps/frontend/package.json deploy/
+          cp apps/frontend/yarn.lock deploy/
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -48,3 +48,4 @@ jobs:
           app-name: ${{ env.WEBAPP_NAME }}   # <-- replace with your app name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_NC }}
           package: ./deploy
+
