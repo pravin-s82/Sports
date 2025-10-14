@@ -29,26 +29,26 @@ jobs:
           corepack prepare yarn@4.9.1 --activate
 
       - name: Install dependencies and build app
-        working-directory: apps/frontend
+#        working-directory: apps/frontend
         run: |
           yarn install --frozen-lockfile
-          yarn build
+          yarn  workspace frontend build
 
 #      - name: Upload artifact for deployment
 #        run: |
 #          mkdir -p ./artifact
 #          cp -r apps/frontend/.next apps/frontend/public apps/frontend/next.config.js apps/frontend/package.json yarn.lock ./artifact
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: nextjs-build
-          path: |
-            apps/frontend/.next
-            apps/frontend/public
-            apps/frontend/package.json
-            apps/frontend/next.config.js
-            apps/frontend/node_modules
+#      - name: Upload build artifacts
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: nextjs-build
+#          path: |
+#            apps/frontend/.next
+#            apps/frontend/public
+#            apps/frontend/package.json
+#            apps/frontend/next.config.js
+#            apps/frontend/node_modules
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
