@@ -34,16 +34,26 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
 
-      - name: Upload artifact for deployment
-        run: |
-          mkdir -p ./artifact
-          cp -r apps/frontend/.next apps/frontend/public apps/frontend/next.config.js apps/frontend/package.json yarn.lock ./artifact
+#      - name: Upload artifact for deployment
+#        run: |
+#          mkdir -p ./artifact
+#          cp -r apps/frontend/.next apps/frontend/public apps/frontend/next.config.js apps/frontend/package.json yarn.lock ./artifact
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: nextjs-build
+          path: |
+            apps/frontend/.next
+            apps/frontend/public
+            apps/frontend/package.json
+            apps/frontend/next.config.js
+            apps/frontend/node_modules
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.WEBAPP_NAME }}   # <-- replace with your app name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_NC }}
-          package: ./artifact
+          package: apps/frontend
 
