@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "Creating deploy folder..."
           mkdir deploy
-          cp -r .next public package.json yarn.lock next.config.js deploy/
+          cp -r package.json yarn.lock deploy/
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
