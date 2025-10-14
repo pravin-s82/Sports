@@ -40,7 +40,7 @@ jobs:
           cp -r apps/frontend/.next deploy/
           cp -r apps/frontend/public deploy/
           cp apps/frontend/package.json deploy/
-          cp apps/frontend/yarn.lock deploy/
+          cp yarn.lock deploy/
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
