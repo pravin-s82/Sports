@@ -39,7 +39,7 @@ jobs:
           echo "Creating deploy folder..."
           mkdir deploy
           cp -r apps/frontend/.next apps/frontend/public deploy/
-          cp apps/frontend/package.json apps/frontend/yarn.lock deploy/
+          cp package.json yarn.lock deploy/
 
 
       - name: 🚀 Deploy to Azure Web App
