@@ -23,19 +23,16 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install dependencies
-        working-directory: ./app/frontend
-        run: yarn install
+      - name: Install dependencies and build app
+        working-directory: apps/frontend
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
 
-      - name: Build Next.js app
-        working-directory: ./app/frontend
-        run: yarn build
-
-
-#      - name: Upload artifact for deployment
-#        run: |
-#          mkdir -p ./artifact
-#          cp -r .next public package.json yarn.lock ./artifact
+      - name: Upload artifact for deployment
+        run: |
+          mkdir -p ./artifact
+          cp -r apps/frontend/.next apps/frontend/public pps/frontend/next.config.js package.json yarn.lock ./artifact
 
 
       - name: 🚀 Deploy to Azure Web App
