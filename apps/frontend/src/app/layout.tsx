@@ -90,6 +90,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="stylesheet" href="/assets/css/cagov.core.min.css" />
         <link rel="stylesheet" href="/assets/css/sportsorbit-custom.css" />
         <link rel="stylesheet" href="/assets/css/colortheme-oceanside.min.css" />
+
+        <script type='text/javascript'>
+          var zaius = window['zaius']||(window['zaius']=[]);zaius.methods=["initialize","onload","customer","entity","event","subscribe","unsubscribe","consent","identify","anonymize","dispatch"];zaius.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);zaius.push(t);return zaius}};(function(){for(var i=0;i<zaius.methods.length;i++){var method=zaius.methods[i];zaius[method]=zaius.factory(method)}var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=("https:"===document.location.protocol?"https://":"http://")+"d1igp3oop3iho5.cloudfront.net/v2/f9E9BW5mw4BuwNlMriYT8A/zaius-min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+          
+          // Edits to this script should only be made below this line.
+          zaius.event('pageview');
+        </script>
+
       </head>      
         <Body className="primary">
           <OptimizelyOneProvider value={{ debug: false }} >
